@@ -1,0 +1,68 @@
+{
+	"definitions": {},
+	"$schema": "https://json-schema.org/draft-07/schema#", 
+	"$id": "#contractor_page", 
+	"title": "Contractor Page", 
+	"description": "This is data points used in generating a standarized contractor page",
+	"type": "object",
+	"required": [
+		"title",
+		"contractor",
+		"description",
+		"images",
+		"uuid",
+		"updated",
+		"created"
+	],
+	"properties": {	
+		"uuid": {
+			"description": "A UUID V4 that is used as page id",
+			"$ref": "./user_schema.json#/definitions/UUID"
+		},	
+		"created": {
+			"readOnly": true,
+			"$id": "#contractor_page/created",
+			"type": "string",
+			"title": "Created",
+			"description": "When the contractor created the page, created by server",
+			"format": "date"
+		},
+		"updated": {
+			"readOnly": true,
+			"$id": "#contractor_page/updated",
+			"type": "string",
+			"title": "Created",
+			"description": "When the contractor updated the page, handled by server",
+			"format": "date-time"
+		},
+		"title": {
+			"$id": "#contractor_page/title", 
+			"title": "Title", 
+			"type": "string",
+			"default": "",
+			"examples": [],
+			"pattern": "^.*$"
+		},
+		"contractor": {
+			"$ref": "./user_schema.json"
+		},
+		"description": {
+			"$id": "#contractor_page/description", 
+			"title": "Description", 
+			"type": "string",
+			"default": "",
+			"examples": [],
+			"pattern": "^.*$"
+		},
+		"images": {
+			"$id": "#contractor_page/images", 
+			"title": "Images", 
+			"type": "array",
+			"items": {
+				"type": "string",
+				"format": "iri"
+			},
+			"default": []
+		}
+	}
+}
