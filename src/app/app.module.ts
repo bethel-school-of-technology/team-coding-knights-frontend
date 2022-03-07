@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainPageComponent } from './main-page/main-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { NavbarModule } from './navbar/navbar.module';
+
+import { UserAccountService } from './services/UserAccount/user-account.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,12 @@ import { LoginPageComponent } from './login-page/login-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NavbarModule
   ],
-  providers: [],
+  providers: [
+    UserAccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

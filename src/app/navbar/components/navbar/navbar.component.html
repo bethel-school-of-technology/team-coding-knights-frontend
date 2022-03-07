@@ -1,0 +1,50 @@
+<mat-toolbar>
+    <div class="navbar-main">
+        <img src="/favicon.ico" alt="logo">
+        <span class="navbar-app-title">ProEstimates</span> 
+        <div class="navbar-links">
+            <a routerLink="/" routerLinkActive="active">Home</a>
+            <a routerLink="/contractors" routerLinkActive="active">Contractors</a>
+            <a routerLink="/contact" routerLinkActive="active">Contact</a>
+        </div>
+    </div>
+    <div class="account-ctrl">
+        <app-account *ngIf="userAuthenicated; else loginOptions"></app-account>
+        <ng-template #loginOptions>
+            <div class="navbar-login-options">
+                <button mat-stroked-button color="primary" (click)="routeTo('/login')">Login</button>
+                <button mat-raised-button color="primary" (click)="routeTo('/register')">Register</button>
+            </div>
+        </ng-template>
+    </div>
+</mat-toolbar>
+
+<!--
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item href="#">Link 1</a>
+        <a mat-list-item href="#">Link 2</a>
+        <a mat-list-item href="#">Link 3</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>ProEstimates</span>
+      </mat-toolbar>
+     
+    </mat-sidenav-content>
+</mat-sidenav-container>
+-->

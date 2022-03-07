@@ -1,0 +1,30 @@
+mat-toolbar {
+    justify-content: space-between;
+}
+
+div.account-ctrl {
+    > div.navbar-login-options {
+        > button:first-child {
+            margin-right: 1rem;
+        }
+    }
+}
+
+div.navbar-main {
+    display: flex;
+    > span.navbar-app-title {
+        margin-left: 1rem;
+    }
+    > div.navbar-links {
+        margin-left: 1rem;
+        display: flex;
+        > a {
+            color: lighten(#607d8b,30%);
+            margin: 0 0.2rem 0 0.2rem;
+            text-decoration: none;
+            &.active {
+                text-decoration: underline;
+            }
+        }
+    }
+}
