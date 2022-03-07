@@ -1,10 +1,16 @@
 # ProEstimates
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+### npm start
+Running npm start will launch both the angular dev server and the json db server, so you don't need to open two terminals to run both at the same time.
+
+> Angular dev server `http://localhost:4200`
+> Json DB server     `http://localhost:3000` 
 
 ## Code scaffolding
 
