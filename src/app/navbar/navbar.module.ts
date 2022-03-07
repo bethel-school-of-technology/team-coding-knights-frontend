@@ -10,7 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AccountComponent } from './components/account/account.component';
-import { TestComponent } from './components/test/test.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -18,8 +17,7 @@ import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     NavbarComponent,
-    AccountComponent,
-    TestComponent
+    AccountComponent
   ],
   imports: [
     CommonModule,
