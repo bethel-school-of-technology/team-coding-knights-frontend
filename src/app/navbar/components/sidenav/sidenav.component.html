@@ -1,0 +1,27 @@
+<mat-sidenav #drawer [opened]="isSidenavOpen" [@openClose]="isSidenavOpen ? 'open' : 'closed'" class="sidenav-container">
+    <div class="sidenav-user">
+      <h3>Username</h3>
+      <div>
+        <span>Email</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon aria-hidden="false" aria-label="account icon">expand_more</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Account</span>
+            </button>
+        </mat-menu>
+      </div>
+    </div>
+    <hr/>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="activeSidenav">Home</a>
+      <a mat-list-item routerLink="/contractors" routerLinkActive="activeSidenav">Contractors</a>
+      <a mat-list-item routerLink="/contact" routerLinkActive="activeSidenav">Contact</a>
+    </mat-nav-list>
+</mat-sidenav>

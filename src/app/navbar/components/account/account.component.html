@@ -1,3 +1,17 @@
-<span>Username</span>
-<mat-icon aria-hidden="false" aria-label="account icon">home</mat-icon>
+<div class="user">
+    <span>{{ username }}</span>
+    <button [matMenuTriggerFor]="menu" mat-icon-button color="accent" aria-label="Example icon button with a bookmark icon">
+        <mat-icon aria-hidden="false" aria-label="account icon">account_circle</mat-icon>
+    </button>
+</div>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Account</span>
+    </button>
+</mat-menu>
 

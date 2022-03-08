@@ -8,10 +8,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserAccountService {
-
+  username: string = "TEMPNAME";
   constructor() { }
 
   public isAuthenicated(): boolean {
-    return false;
+    return true;
   }
 }

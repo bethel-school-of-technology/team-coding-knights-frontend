@@ -1,0 +1,25 @@
+.sidenav-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+mat-nav-list {
+    > a.activeSidenav {
+        background-color: rgba(255,255,255,.09);
+    }
+}
+
+div.sidenav-user {
+    padding: 1rem;
+    width: 200px;
+    > h3 {
+        margin-bottom: 0;
+    }
+    > div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
