@@ -11,13 +11,19 @@ import { UserAccountService } from '../../../services/UserAccount/user-account.s
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  public userAuthenicated: boolean = false;
   public isSidenavOpen: boolean = false;
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.XSmall]).pipe(map(result => result.matches),shareReplay());
+  public isAuthenicated: boolean = false;
+  public onSmallScreen: boolean = false;
+  private isHandset: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.XSmall]).pipe(map(result => result.matches),shareReplay());
   constructor(private account: UserAccountService, private router: Router, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.userAuthenicated = this.account.isAuthenicated();
+    this.account.isAuthenicated.subscribe((value)=>{
+      this.isAuthenicated = value;
+    });
+    this.isHandset.subscribe((value)=>{
+      this.onSmallScreen = value;
+    });
   }
   public routeTo(link: string): void {
     this.router.navigate([link]);

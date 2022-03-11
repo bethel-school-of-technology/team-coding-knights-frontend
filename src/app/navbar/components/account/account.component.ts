@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.object';
 import { UserAccountService } from 'src/app/services/UserAccount/user-account.service';
 
 @Component({
@@ -7,11 +9,14 @@ import { UserAccountService } from 'src/app/services/UserAccount/user-account.se
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-  public username: string = "USERNAME";
-  constructor(public account: UserAccountService) { }
-
+  public user: User | undefined = undefined;
+  constructor(public account: UserAccountService, private router: Router) { }
   ngOnInit(): void {
-    this.username = this.account.username;
+    this.account.user.subscribe((value)=>{
+      this.user = value;
+    });
   }
-
+  public routeToAccountPage(): void {
+    this.router.navigate(["/account",this.user?.user_id]);
+  }
 }

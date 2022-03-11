@@ -1,21 +1,14 @@
 <mat-sidenav #drawer [opened]="isSidenavOpen" [@openClose]="isSidenavOpen ? 'open' : 'closed'" class="sidenav-container">
     <div class="sidenav-user">
-      <h3>Username</h3>
-      <div>
-        <span>Email</span>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon aria-hidden="false" aria-label="account icon">expand_more</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>logout</mat-icon>
-              <span>Logout</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>notifications_off</mat-icon>
-              <span>Account</span>
-            </button>
-        </mat-menu>
+      <div class="user" *ngIf="isAuthenicated">
+        <div class="avatar">
+          <img src="https://via.placeholder.com/300/09f/fff.png"/>
+        </div>
+        <h3>Email</h3>
+      </div>
+      <div class="account-options" *ngIf="!isAuthenicated">
+          <button mat-stroked-button color="primary" (click)="routeTo('/login')">Login</button>
+          <button mat-raised-button color="primary" (click)="routeTo('/register')">Register</button>
       </div>
     </div>
     <hr/>
@@ -23,5 +16,9 @@
       <a mat-list-item routerLink="/" routerLinkActive="activeSidenav">Home</a>
       <a mat-list-item routerLink="/contractors" routerLinkActive="activeSidenav">Contractors</a>
       <a mat-list-item routerLink="/contact" routerLinkActive="activeSidenav">Contact</a>
+      <ng-template *ngIf="isAuthenicated">
+        <a mat-list-item routerLink="/logout" routerLinkActive="activeSidenav">Contact</a>
+        <a mat-list-item routerLink="/account" routerLinkActive="activeSidenav">Contact</a>
+      </ng-template>
     </mat-nav-list>
 </mat-sidenav>

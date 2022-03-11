@@ -3,14 +3,14 @@
       <img src="/favicon.ico" alt="logo">
       <span class="navbar-app-title">ProEstimates</span> 
     </div>
-    <div class="navbar-main" *ngIf="!(isHandset$ | async)">
+    <div class="navbar-main" *ngIf="!onSmallScreen">
         <div class="navbar-links">
             <a routerLink="/" routerLinkActive="active">Home</a>
             <a routerLink="/contractors" routerLinkActive="active">Contractors</a>
             <a routerLink="/contact" routerLinkActive="active">Contact</a>
         </div>
         <div class="account-ctrl">
-          <app-account *ngIf="userAuthenicated; else loginOptions"></app-account>
+          <app-account *ngIf="isAuthenicated; else loginOptions"></app-account>
           <ng-template #loginOptions>
               <div class="navbar-login-options">
                   <button mat-stroked-button color="primary" (click)="routeTo('/login')">Login</button>
@@ -19,7 +19,7 @@
           </ng-template>
       </div>
     </div>
-    <div class="navbar-aside" *ngIf="(isHandset$ | async)">
+    <div class="navbar-aside" *ngIf="onSmallScreen">
       <button mat-icon-button (click)="toggleSidenav()">
         <mat-icon aria-hidden="false" aria-label="account icon">menu</mat-icon>
       </button>
