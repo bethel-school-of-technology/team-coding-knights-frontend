@@ -1,4 +1,5 @@
 {
-    "users": {},
-    "pages": {}
+  "api": {
+      "users": {}
+   }
 }
