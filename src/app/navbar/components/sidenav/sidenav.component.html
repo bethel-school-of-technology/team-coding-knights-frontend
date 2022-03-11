@@ -13,12 +13,25 @@
     </div>
     <hr/>
     <mat-nav-list>
-      <a mat-list-item routerLink="/" routerLinkActive="activeSidenav">Home</a>
-      <a mat-list-item routerLink="/contractors" routerLinkActive="activeSidenav">Contractors</a>
-      <a mat-list-item routerLink="/contact" routerLinkActive="activeSidenav">Contact</a>
-      <ng-template *ngIf="isAuthenicated">
-        <a mat-list-item routerLink="/logout" routerLinkActive="activeSidenav">Contact</a>
-        <a mat-list-item routerLink="/account" routerLinkActive="activeSidenav">Contact</a>
-      </ng-template>
+      <a mat-list-item routerLink="/" routerLinkActive="activeSidenav" class="sidenav-link">
+        <mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon>
+        Home
+      </a>
+      <a mat-list-item routerLink="/contractors" routerLinkActive="activeSidenav" class="sidenav-link">
+        <mat-icon aria-hidden="false" aria-label="home icon">list</mat-icon>
+        Contractors
+      </a>
+      <a mat-list-item routerLink="/contact" routerLinkActive="activeSidenav" class="sidenav-link">
+        <mat-icon aria-hidden="false" aria-label="home icon">contacts</mat-icon>
+        Contact
+      </a>
+      <a *ngIf="isAuthenicated" mat-list-item routerLinkActive="activeSidenav" class="sidenav-link" (click)="account.logout()">
+        <mat-icon aria-hidden="false" aria-label="home icon">logout</mat-icon>
+        Logout
+      </a>
+      <a *ngIf="isAuthenicated" mat-list-item routerLink="/account" routerLinkActive="activeSidenav" class="sidenav-link">
+        <mat-icon aria-hidden="false" aria-label="home icon">account_circle</mat-icon>
+        Account
+      </a>
     </mat-nav-list>
 </mat-sidenav>

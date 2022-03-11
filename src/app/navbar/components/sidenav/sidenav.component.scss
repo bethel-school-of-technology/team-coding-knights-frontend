@@ -4,7 +4,6 @@
     top: 0;
     left: 0;
 }
-
 mat-nav-list {
     > a.activeSidenav {
         background-color: rgba(255,255,255,.09);
@@ -46,4 +45,8 @@ div.sidenav-user {
             }
         }
     }
+}
+
+mat-icon {
+    margin-right: 1rem;
 }

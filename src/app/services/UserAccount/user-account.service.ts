@@ -16,7 +16,7 @@ export class UserAccountService {
    * @type {BehaviorSubject<boolean>}
    * @memberof UserAccountService
    */
-  public isAuthenicated: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public isAuthenicated: BehaviorSubject<boolean> = new BehaviorSubject(true);
   constructor() { }
   /**
    * Returns the current user's jwt for use in calls to the backend
@@ -31,5 +31,11 @@ export class UserAccountService {
   }
   public async logout(): Promise<void> {
     throw new Error("Method is not implemeted");
+  }
+  private setUser(profile: User): void {
+      this.user.next(profile);
+  }
+  private setAuthenicated(value: boolean) {
+      this.isAuthenicated.next(value);
   }
 }

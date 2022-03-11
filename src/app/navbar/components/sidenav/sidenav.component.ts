@@ -43,7 +43,7 @@ export class SidenavComponent implements OnInit {
   public toggleSidenav: () => void;
   public user: User | undefined = undefined;
   public isAuthenicated: boolean = false;
-  constructor(private account: UserAccountService, private router: Router) {
+  constructor(public account: UserAccountService, private router: Router) {
 
   }
   ngOnInit(): void { 
