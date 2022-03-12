@@ -1,10 +1,12 @@
 <mat-toolbar>
     <div class="navbar-logo">
+      <!--TODO: Make clicking on this redirect to /-->
       <img src="/favicon.ico" alt="logo">
       <span class="navbar-app-title">ProEstimates</span> 
     </div>
     <div class="navbar-main" *ngIf="!onSmallScreen">
         <div class="navbar-links">
+            <!--TODO: Center Links-->
             <a routerLink="/" routerLinkActive="active">Home</a>
             <a routerLink="/contractors" routerLinkActive="active">Contractors</a>
             <a routerLink="/contact" routerLinkActive="active">Contact</a>

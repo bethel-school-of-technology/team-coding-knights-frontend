@@ -16,7 +16,7 @@ export class UserAccountService {
    * @type {BehaviorSubject<boolean>}
    * @memberof UserAccountService
    */
-  public isAuthenicated: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  public isAuthenicated: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor() { }
   /**
    * Returns the current user's jwt for use in calls to the backend
