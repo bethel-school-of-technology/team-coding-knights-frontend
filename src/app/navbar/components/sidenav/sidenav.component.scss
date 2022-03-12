@@ -1,0 +1,52 @@
+.sidenav-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+mat-nav-list {
+    > a.activeSidenav {
+        background-color: rgba(255,255,255,.09);
+    }
+}
+div.sidenav-user {
+    padding: 1rem  1rem 0 1rem;
+    width: 200px;
+    > div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    > div.account-options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: stretch;
+        justify-content: stretch;
+        width: 100%;
+        > button:first-child {
+            margin-bottom: 0.5rem;
+        }
+    }
+    > div.user {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        > h3 {
+            text-overflow: ellipsis;
+            margin-bottom: 1px;
+        }
+        > div.avatar {
+            width: 50px;
+            height: 50px;
+            > img {
+                width: inherit;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+mat-icon {
+    margin-right: 1rem;
+}

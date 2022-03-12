@@ -1,0 +1,30 @@
+<mat-toolbar>
+    <div class="navbar-logo">
+      <!--TODO: Make clicking on this redirect to /-->
+      <img src="/favicon.ico" alt="logo">
+      <span class="navbar-app-title">ProEstimates</span> 
+    </div>
+    <div class="navbar-main" *ngIf="!onSmallScreen">
+        <div class="navbar-links">
+            <!--TODO: Center Links-->
+            <a routerLink="/" routerLinkActive="active">Home</a>
+            <a routerLink="/contractors" routerLinkActive="active">Contractors</a>
+            <a routerLink="/contact" routerLinkActive="active">Contact</a>
+        </div>
+        <div class="account-ctrl">
+          <app-account *ngIf="isAuthenicated; else loginOptions"></app-account>
+          <ng-template #loginOptions>
+              <div class="navbar-login-options">
+                  <button mat-stroked-button color="primary" (click)="routeTo('/login')">Login</button>
+                  <button mat-raised-button color="primary" (click)="routeTo('/register')">Register</button>
+              </div>
+          </ng-template>
+      </div>
+    </div>
+    <div class="navbar-aside" *ngIf="onSmallScreen">
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon aria-hidden="false" aria-label="account icon">menu</mat-icon>
+      </button>
+    </div>
+</mat-toolbar>
+<app-sidenav [isSidenavOpen]="isSidenavOpen" [toggleSidenav]="toggleSidenav"></app-sidenav>
