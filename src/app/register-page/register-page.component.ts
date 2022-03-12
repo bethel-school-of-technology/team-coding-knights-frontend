@@ -13,14 +13,19 @@ export class RegisterPageComponent implements OnInit {
   public email = new FormControl("",[Validators.required,Validators.email]);
   public firstName = new FormControl("",[Validators.required]);
   public lastName = new FormControl("",[Validators.required]);
-  public zipCode = new FormControl(undefined,[Validators.required, Validators.pattern(/\d{5}(?:\d{4})?/)]);
-  public phoneNumber = new FormControl(undefined,[Validators.required, Validators.pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)]);
+  public zipCode = new FormControl(undefined,[
+    Validators.required, 
+    Validators.pattern(/\d{5}(?:\d{4})?/)
+  ]);
+  public phoneNumber = new FormControl(undefined,[
+    Validators.required, 
+    Validators.pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)
+  ]);
   public password = new FormControl("",[Validators.required]);
   public psd_check = new FormControl("",[Validators.required, ]);
   constructor(private router: Router) { }
   ngOnInit(): void {
     this.psd_check.valueChanges.subscribe((value)=>{
-      console.log(value);
       if(value !== this.password.value) {
         this.psd_check.setErrors({ "matching": true });
         return;
