@@ -9,18 +9,22 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NavbarModule } from './navbar/navbar.module';
 
 import { UserAccountService } from './services/UserAccount/user-account.service';
+import { ContractorsPageComponent } from './contractors-page/contractors-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ContractorsPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NavbarModule
+    NavbarModule,
+    NgbModule
   ],
   providers: [
     UserAccountService
