@@ -28,7 +28,7 @@ import type { User } from '../../models/user.object';
    public async getAccessTokenSilently(): Promise<void> {
      throw new Error("Method is not implemented");
    }
-   public async login(email: string, password: string): Promise<void> {
+   public async login(request: { email: string, password: string }): Promise<void> {
      throw new Error("Method is not implemeted");
    }
    public async logout(): Promise<void> {

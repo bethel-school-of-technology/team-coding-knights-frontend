@@ -16,7 +16,7 @@ export class RegisterPageComponent implements OnInit {
     phoneNumber: new FormControl(undefined,[Validators.required, Validators.pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)]),
     password: new FormControl(undefined,[Validators.required])
   });
-  private psd_check = new FormControl(undefined,[Validators.required]);
+  public psd_check = new FormControl(undefined,[Validators.required]);
   constructor(private accountService: UserAccountService) { }
   ngOnInit(): void {
   this.psd_check.valueChanges.subscribe((value)=>{
