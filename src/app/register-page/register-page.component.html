@@ -1,42 +1,42 @@
 <div class="register-page-wrapper">
-    <form class="register-card" (ngSubmit)="submitForm">
-        <h1>Create a account</h1>
+    <form class="register-card" [formGroup]="userForm" (ngSubmit)="submitForm()">
+        <div class="register-title">
+            <h2 class="mat-display-2">Register</h2>
+        </div>
         <div class="name-group">
             <mat-form-field appearance="outline">
-                <mat-label>First name</mat-label>
-                <input [formControl]="firstName" name="firstName" required matInput type="text" placeholder="First name">
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstName" required matInput type="text" placeholder="First name">
             </mat-form-field>
              <mat-form-field appearance="outline">
-                <mat-label>Last name</mat-label>
-                <input [formControl]="lastName" name="lastName" required matInput type="text" placeholder="Last name">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastName" required matInput type="text" placeholder="Last name">
             </mat-form-field>
         </div>
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input required [formControl]="email" id="email" name="email" matInput type="email" placeholder="example@gmail.com">
-            <mat-error *ngIf="email.invalid">{{ getEmailErrorMessage() }}</mat-error>
+            <input required formControlName="email" matInput type="email" placeholder="example@gmail.com">
+            <mat-error *ngIf="userForm.get('email').invalid">{{ getEmailErrorMessage() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Zip Code</mat-label>
-            <input [formControl]="zipCode" required name="zipCode" matInput placeholder="Zip code">
-            <mat-error *ngIf="zipCode.invalid">{{ getZipCodeError() }}</mat-error>
+            <input formControlName="zipCode" matInput placeholder="Zip code">
+            <mat-error *ngIf="userForm.get('zipCode').invalid">{{ getZipCodeError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Phone Number</mat-label>
-            <input [formControl]="phoneNumber" required name="phoneNumber" matInput type="tel" placeholder="Phone number">
-            <mat-error *ngIf="phoneNumber.invalid">{{ getPhoneNumberError() }}</mat-error>
+            <input formControlName="phoneNumber" matInput type="tel" placeholder="Phone number">
+            <mat-error *ngIf="userForm.get('phoneNumber').invalid">{{ getPhoneNumberError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input [formControl]="password" type="password" required matInput placeholder="Password">
+            <input formControlName="password" type="password" required matInput placeholder="Password">
         </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>Check Password</mat-label>
+            <mat-label>Confirm Password</mat-label>
             <input [formControl]="psd_check" type="password" required matInput placeholder="Password">
             <mat-error *ngIf="psd_check.invalid">{{getPsdCheckErrorMessage()}}</mat-error>
         </mat-form-field>
-        <div class="submit-actions">
-            <button type="submit" mat-raised-button color="primary">Create</button>
-        </div>
+        <button type="submit" mat-raised-button color="primary">Create</button>
     </form>
 </div>

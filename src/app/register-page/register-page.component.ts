@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserAccountService } from '../services/UserAccount/user-account.service';
 
 @Component({
   selector: 'app-register-page',
@@ -10,23 +8,19 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent implements OnInit {
-  public email = new FormControl("",[Validators.required,Validators.email]);
-  public firstName = new FormControl("",[Validators.required]);
-  public lastName = new FormControl("",[Validators.required]);
-  public zipCode = new FormControl(undefined,[
-    Validators.required, 
-    Validators.pattern(/\d{5}(?:\d{4})?/)
-  ]);
-  public phoneNumber = new FormControl(undefined,[
-    Validators.required, 
-    Validators.pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)
-  ]);
-  public password = new FormControl("",[Validators.required]);
-  public psd_check = new FormControl("",[Validators.required, ]);
-  constructor(private router: Router) { }
+  public userForm = new FormGroup({
+    email: new FormControl(undefined,[Validators.required,Validators.email]),
+    firstName: new FormControl(undefined,[Validators.required]),
+    lastName: new FormControl(undefined,[Validators.required]),
+    zipCode: new FormControl(undefined,[Validators.required,Validators.pattern(/\d{5}(?:\d{4})?/)]),
+    phoneNumber: new FormControl(undefined,[Validators.required, Validators.pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)]),
+    password: new FormControl(undefined,[Validators.required])
+  });
+  private psd_check = new FormControl(undefined,[Validators.required]);
+  constructor(private accountService: UserAccountService) { }
   ngOnInit(): void {
-    this.psd_check.valueChanges.subscribe((value)=>{
-      if(value !== this.password.value) {
+  this.psd_check.valueChanges.subscribe((value)=>{
+      if(value !== this.userForm.get("password").value) {
         this.psd_check.setErrors({ "matching": true });
         return;
       } 
@@ -34,22 +28,22 @@ export class RegisterPageComponent implements OnInit {
     });
   }
   public getZipCodeError(){
-    if (this.zipCode.hasError('required')) {
+    if (this.userForm.hasError("required","zipCode")) {
       return 'You must enter a value';
     }
     return "Invaild Zip Code";
   }
   public getPhoneNumberError(){
-    if (this.phoneNumber.hasError('required')) {
+    if (this.userForm.hasError("required","phoneNumber")) {
       return 'You must enter a value';
     }
     return "Invaild Phone number";
   }
   public getEmailErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.userForm.hasError('required',"email")) {
       return 'You must enter a value';
     }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.userForm.hasError('email',"email") ? 'Not a valid email' : '';
   }
   public getPsdCheckErrorMessage() {
     if(this.psd_check.hasError("required")) {
@@ -58,29 +52,7 @@ export class RegisterPageComponent implements OnInit {
 
     return this.psd_check.hasError("matching") ? "Passwords do not match" : "";
   }
-  public async submitForm() {
-    try {
-      const request = await fetch(`${environment.db_root}api/user`, { 
-        method: "POST", 
-        headers: {
-          "content-type": "application/json",          
-        },
-        body: JSON.stringify({
-          user_email: this.email.value,
-          user_fistName: this.firstName.value,
-          user_listName: this.lastName.value,
-          user_zipCode: this.zipCode.value,
-          user_phoneNumber: this.phoneNumber.value,
-          user_password: this.password.value
-        })
-      });
-      const account = await request.json();
-
-      // log new user in.
-
-      this.router.navigate(["/account",account.user_id]);
-    } catch (error) {
-      console.error(error);
-    }
+  public submitForm() {
+    this.accountService.register(this.userForm.getRawValue());
   }
 }

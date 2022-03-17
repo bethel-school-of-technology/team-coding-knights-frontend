@@ -1,5 +1,14 @@
 {
   "api": {
-      "users": {}
+      "users": {
+         "76e87160-724b-442c-a6b5-9e77104a8f04": {
+            "id": 234324343434343434334324234234234,
+            "first_name": "Collin",
+            "last_name": "Blosser",
+            "zip_code": 134343434,
+            "phone_number": 23433434344334,
+            "email": "collin_blosser@yahoo.com"
+         }
+      }
    }
 }
