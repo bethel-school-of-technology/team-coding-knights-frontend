@@ -17,10 +17,13 @@
     "@angular/compiler": "~13.2.5",
     "@angular/core": "~13.2.5",
     "@angular/forms": "~13.2.5",
+    "@angular/localize": "~13.2.5",
     "@angular/material": "^13.2.5",
     "@angular/platform-browser": "~13.2.5",
     "@angular/platform-browser-dynamic": "~13.2.5",
     "@angular/router": "~13.2.5",
+    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "bootstrap": "^4.5.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
