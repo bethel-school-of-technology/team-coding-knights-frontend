@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from "../../../environments/environment";
 import type { User } from '../../models/user.object';
+import type { RegisterForm } from '../../models/register-form.object';
  
  @Injectable({
    providedIn: 'root'
@@ -34,7 +35,7 @@ import type { User } from '../../models/user.object';
    public async logout(): Promise<void> {
      throw new Error("Method is not implemeted");
    }
-   public async register(user: User & { password: string }): Promise<void> {
+   public async register(user: RegisterForm): Promise<void> {
 
         throw new Error("Method not implemeted");
         //TODO: send register request to server await new client info
