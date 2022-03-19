@@ -1,7 +1,10 @@
 
 
 <h1 class="header">Welcome to ProEstimates</h1>
-
+<!-- The body tag can be removed 
+  @MDN: There can be only one <body> element in a document.
+  @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+-->
 <body>
 <div class="ngb-carousel">
   <ngb-carousel #carousel [interval]="3000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
@@ -19,6 +22,9 @@
 </div>
 /<hr>
 
+<!--
+  The carousel controls can be removed
+-->
 <div class="form-check">
   <input type="checkbox" class="form-check-input" id="pauseOnHover" [(ngModel)]="pauseOnHover">
   <label class="form-check-label" for="pauseOnHover">Pause on hover</label>
@@ -40,6 +46,14 @@
 </button>
 </body>
 
+<!--
+  Footer is a good idea, but maybe the dicord app can be put above?
+  Example layout ideas:
+    @see https://onaircode.com/html-css-footer-design-examples/ #8
+
+
+
+-->
   <footer>
     <iframe class="Discord" src="https://discord.com/widget?id=951513886006321202&theme=dark" 
     width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
