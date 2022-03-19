@@ -7,11 +7,9 @@ import { MainPageComponent } from './main-page/main-page.component';
 const routes: Routes = [
  // { path: "loginpage", component: LoginPageComponent},
 
-  { path: "mainpage", component: MainPageComponent},
+  { path: "", component: MainPageComponent },
 
   { path: "contractorspage", component: ContractorsPageComponent},
-
-  { path: "", redirectTo: "loginpage", pathMatch: "full" }
 ];
 
 @NgModule({
