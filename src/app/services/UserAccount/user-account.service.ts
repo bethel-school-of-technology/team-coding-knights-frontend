@@ -2,13 +2,12 @@
  * @author Collin Blosser
  */
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { environment } from "../../../environments/environment";
 import type { User } from '../../models/user.object';
 import type { RegisterForm } from '../../models/register-form.object';
- 
  @Injectable({
    providedIn: 'root'
  })
