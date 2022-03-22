@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center center">
     <div fxLayout="column" fxLayoutAlign="center center" style="height: 80vh">
         <mat-card class="kt-login-card">
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
                 <mat-card-title>
                     Login
                 </mat-card-title>
@@ -9,10 +9,10 @@
                 <mat-card-content>
                     <p>
                         <mat-form-field appearance="outline">
-                            <mat-label>Username</mat-label>
-                            <input matInput formControlName="username" placeholder="Username">
-                            <mat-icon matSuffix color="primary" *ngIf="!loginForm.controls['username'].errors">sentiment_very_satisfied</mat-icon>
-                            <mat-icon matSuffix color="warn" *ngIf="loginForm.controls['username'].errors">sentiment_very_dissatisfied</mat-icon>
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="Email" placeholder="Email">
+                            <mat-icon matSuffix color="primary" *ngIf="!loginForm.controls['Email'].errors">sentiment_very_satisfied</mat-icon>
+                            <mat-icon matSuffix color="warn" *ngIf="loginForm.controls['Email'].errors">sentiment_very_dissatisfied</mat-icon>
                             <mat-hint>Alphanumeric only</mat-hint>
                         </mat-form-field>
                     </p>
@@ -27,7 +27,7 @@
                     </p>
                 </mat-card-content>
                 <mat-card-actions class="kt-card-actions" fxLayout="row" fxLayoutAlign="center center">
-                    <button mat-raised-button color="primary">
+                    <button mat-raised-button color="primary" type="submit">
                         <mat-icon>account_circle</mat-icon> Submit
                     </button>
                 </mat-card-actions>
