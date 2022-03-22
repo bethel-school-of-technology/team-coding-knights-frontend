@@ -7,9 +7,10 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 
 const routes: Routes = [
- // { path: "loginpage", component: LoginPageComponent},
+  //{ path: "loginpage", component: LoginPageComponent},
   { path: "register", component: RegisterPageComponent },
   { path: "", component: MainPageComponent },
+  
 
   { path: "contractorspage", component: ContractorsPageComponent},
 ];
