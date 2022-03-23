@@ -1,4 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { IQuote } from 'src/app/models/quote.object';
+import { QuotesService } from 'src/app/services/Quotes/quotes.service';
 
 @Component({
   selector: 'app-quote',
@@ -7,17 +9,24 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class QuoteComponent implements OnInit {
   @Input()
-  name: string = "Quote Name";
-  @Input()
-  contractor: string = "Contractor Name";
+  public quote: IQuote;
+  public name: string = "Quote Name";
+  public contractor: string = "Contractor Name";
   @ViewChild("content")
   content: ElementRef;
   private _open: boolean = false;
-  constructor() { }
+  constructor(private quoteService: QuotesService ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public deleteQuote() {
+      try {
+        this.quoteService.deleteQuoteById(this.quote.quote_id);
+      } catch (error) {
+        console.error(error);
+      }
   }
-  public deleteQuote() {}
+
   public viewContent(){
     if(!this._open) {
       this.content.nativeElement.style.display = "flex";

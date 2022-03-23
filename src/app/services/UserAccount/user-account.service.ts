@@ -21,9 +21,8 @@ import type { RegisterForm } from '../../models/register-form.object';
    public isAuthenicated: BehaviorSubject<boolean> = new BehaviorSubject(false);
    constructor(private router: Router, private http: HttpClient) { 
       //TODO: Replace with real code
-      this.http.get(`${environment.db_root}/users`).toPromise().then((value)=>{
-        const user = value["76e87160-724b-442c-a6b5-9e77104a8f04"];
-        this.setUser(user);
+      this.http.get<User[]>(`${environment.db_root}/user/2343243434343434`).toPromise().then((value)=>{
+        this.setUser(value[0]);
         this.setAuthenicated(true);
       });
 
@@ -53,7 +52,7 @@ import type { RegisterForm } from '../../models/register-form.object';
 
         throw new Error("Method not implemeted");
         //TODO: send register request to server await new client info
-        const request = await this.http.post<User>(`${environment.db_root}/api/register`,user).toPromise();
+        const request = await this.http.post<User>(`${environment.db_root}/register`,user).toPromise();
         
         this.setUser(request);
         this.setAuthenicated(true);

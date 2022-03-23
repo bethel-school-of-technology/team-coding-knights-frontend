@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/Quotes/quotes.service';
 import { UserAccountService } from 'src/app/services/UserAccount/user-account.service';
 
+import type { IQuote } from 'src/app/models/quote.object';
+
 @Component({
   selector: 'app-quotes-list',
   templateUrl: './quotes-list.component.html',
   styleUrls: ['./quotes-list.component.scss']
 })
 export class QuotesListComponent implements OnInit {
-  public quotesList: any[] = [];
+  public quotesList: IQuote[] = [];
   constructor(private quotes: QuotesService, private accountService: UserAccountService) { }
 
   ngOnInit(): void {
@@ -17,13 +19,9 @@ export class QuotesListComponent implements OnInit {
   private async fetchQuotes(authenicated: boolean){
     try {
       if(!authenicated) return;
-      const user = this.accountService.user.getValue();
-
-      const quotes = await this.quotes.getQuotesByUser(user.user_id);
+      const quotes = await this.quotes.getQuotesOfUser();
+      
       this.quotesList = quotes;
-
-      console.log(quotes);
-
     } catch (error) {
       console.error(error);
     }
