@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     this.loginError = '';
   }
   submit() {
-    //this.UserAccountService.login();
-    console.log(this.loginForm.getRawValue())
+    this.accountService.login(this.loginForm.getRawValue());
   }
 }

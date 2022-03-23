@@ -19,14 +19,29 @@ import type { RegisterForm } from '../../models/register-form.object';
     * @memberof UserAccountService
     */
    public isAuthenicated: BehaviorSubject<boolean> = new BehaviorSubject(false);
-   constructor(private router: Router, private http: HttpClient) { }
+   constructor(private router: Router, private http: HttpClient) { 
+      //TODO: Replace with real code
+      this.http.get(`${environment.db_root}/users`).toPromise().then((value)=>{
+        const user = value["76e87160-724b-442c-a6b5-9e77104a8f04"];
+        this.setUser(user);
+        this.setAuthenicated(true);
+      });
+
+   }
+   public getUser(): User | undefined {
+    return this.user.getValue()
+   }
+   public getIsAuthenicated(): boolean {
+     return this.isAuthenicated.getValue();
+   }
    /**
     * Returns the current user's jwt for use in calls to the backend
     *
     * @memberof UserAccountService
     */
-   public async getAccessTokenSilently(): Promise<void> {
-     throw new Error("Method is not implemented");
+   public async getAccessTokenSilently(): Promise<string|null> {
+    return null;
+    // throw new Error("Method is not implemented");
    }
    public async login(request: { email: string, password: string }): Promise<void> {
      throw new Error("Method is not implemeted");

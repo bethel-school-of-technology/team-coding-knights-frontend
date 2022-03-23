@@ -1,0 +1,37 @@
+.quote-content {
+    display: none;
+}
+.contractor {
+    display: flex;
+    flex-direction: column;
+    > small {
+        > a {
+            text-decoration: none;
+        }
+    }
+}
+.quote-card {
+    margin-top: 0.5rem;
+    display: flex;
+    border-radius: 4px;
+    padding: 16px;
+    width: 100%;
+    flex-direction: column;
+    > div.quick-view {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        > div.actions {
+            display: flex;
+        }
+    }
+    > div.quote-content {
+        display: flex;
+        flex-direction: column;
+        > hr {
+            width: 100%;
+            height: 2px;
+            background-color: var(--bs-gray-500);
+        }
+    }
+}
