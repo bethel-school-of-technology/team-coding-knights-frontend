@@ -1,14 +1,24 @@
 {
-  "api": {
-      "users": {
-         "76e87160-724b-442c-a6b5-9e77104a8f04": {
-            "id": 234324343434343434334324234234234,
-            "first_name": "Collin",
-            "last_name": "Blosser",
-            "zip_code": 134343434,
-            "phone_number": 23433434344334,
-            "email": "collin_blosser@yahoo.com"
-         }
+   "user": [
+      {
+         "user_id": 2343243434343434,
+         "user_first_name": "Collin",
+         "user_last_name": "Blosser",
+         "user_zip_code": 134343434,
+         "user_phone_number": 23433434344334,
+         "user_email": "collin_blosser@yahoo.com"
       }
-   }
+   ],
+   "quotes":[
+      {
+         "quote_id":"3448189c-7a9a-4b58-ad6d-f61593b41140",
+         "user_id": 2343243434343434,
+         "material_name": "",
+         "quote_measurment": 0,
+         "quote_price": 0,
+         "quote_material": "",
+         "user_comments": ""
+      }
+   ],
+   "materials": []
 }

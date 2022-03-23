@@ -1,0 +1,4 @@
+{
+    "/quotes/users/:id": "/quotes?user_id=:id",
+    "/user/:id": "/user?user_id:id"
+}
