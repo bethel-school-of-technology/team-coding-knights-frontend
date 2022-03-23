@@ -16,6 +16,16 @@ export class QuotesListComponent implements OnInit {
   ngOnInit(): void {
     this.accountService.isAuthenicated.subscribe(this.fetchQuotes.bind(this));
   }
+
+  public deleteQuote = async (id: number) => {
+    try {
+      await this.quotes.deleteQuoteById(id);
+      this.quotesList = this.quotesList.filter(value=>value.quote_id !== id);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   private async fetchQuotes(authenicated: boolean){
     try {
       if(!authenicated) return;

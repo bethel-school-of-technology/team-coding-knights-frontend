@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSidenavModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FlexLayoutModule
   ],
   exports: [
     MatIconModule,
@@ -43,7 +45,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSidenavModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FlexLayoutModule
   ]
 })
 export class AppMaterialModule { }
