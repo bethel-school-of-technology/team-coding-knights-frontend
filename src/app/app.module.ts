@@ -10,11 +10,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
+import { QuotesComponent } from './quotes/quotes.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     LoginComponent,
+    QuotesComponent,
   ],
   imports: [
     BrowserModule,
