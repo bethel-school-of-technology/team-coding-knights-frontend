@@ -14,7 +14,11 @@ const routes: Routes = [
   { path: "", component: MainPageComponent },
   
 
+
+  { path: "contractors", component: ContractorsPageComponent},
+
   { path: "contractorspage", component: ContractorsPageComponent},
+
 
 ];
 
