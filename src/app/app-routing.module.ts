@@ -5,6 +5,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { ContractorsPageComponent } from './contractors-page/contractors-page.component';
 import { LoginComponent } from './login/login.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { QuotesComponent } from './quotes/quotes.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,9 @@ const routes: Routes = [
   { path: "contractorspage", component: ContractorsPageComponent},
 
 
+  { path: "quotes", component: QuotesComponent},
+
+ // { path: "", redirectTo: "loginpage", pathMatch: "full" }
 ];
 
 @NgModule({
