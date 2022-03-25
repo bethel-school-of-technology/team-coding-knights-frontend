@@ -1,8 +1,11 @@
 
 
 <h1 class="header">Welcome to ProEstimates</h1>
+<!-- The body tag can be removed 
+  @MDN: There can be only one <body> element in a document.
+  @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+-->
 
-<body>
 <div class="ngb-carousel">
   <ngb-carousel #carousel [interval]="3000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
   <ng-template ngbSlide *ngFor="let img of images; index as i">
@@ -18,30 +21,79 @@
 </ngb-carousel>
 </div>
 /<hr>
+<!--<iframe class="discord" src="https://discord.com/widget?id=951513886006321202&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>-->
 
-<div class="form-check">
-  <input type="checkbox" class="form-check-input" id="pauseOnHover" [(ngModel)]="pauseOnHover">
-  <label class="form-check-label" for="pauseOnHover">Pause on hover</label>
-</div>
-<div class="form-check">
-  <input type="checkbox" class="form-check-input" id="pauseOnFocus" [(ngModel)]="pauseOnFocus">
-  <label class="form-check-label" for="pauseOnFocus">Pause on focus</label>
-</div>
-<div class="form-check">
-  <input type="checkbox" class="form-check-input" id="unpauseOnArrow" [(ngModel)]="unpauseOnArrow">
-  <label class="form-check-label" for="unpauseOnArrow">Unpause when clicking on arrows</label>
-</div>
-<div class="form-check">
-  <input type="checkbox" class="form-check-input" id="pauseOnIndicator" [(ngModel)]="pauseOnIndicator">
-  <label class="form-check-label" for="pauseOnIndicator">Pause when clicking on navigation indicator</label>
-</div>
-<button type="button" (click)="togglePaused()" class="btn btn-outline-dark btn-sm">
-  {{paused ? 'Cycle' : 'Pause' }}
-</button>
-</body>
 
-  <footer>
-    <iframe class="Discord" src="https://discord.com/widget?id=951513886006321202&theme=dark" 
-    width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-      <div class="creators">Creators: Arthur Lattin, Brian DeWitt, Caleb Byrne, Collin Blosser, Silvino Santiago. </div>
-  </footer>
+
+<!--
+  Footer is a good idea, but maybe the dicord app can be put above?
+  Example layout ideas:
+    @see https://onaircode.com/html-css-footer-design-examples/ #8
+
+
+
+-->
+ 
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Company<span>logo</span></h3>
+
+    <p class="footer-links">
+      <a href="#" class="link-1">Home</a>
+      
+      <a href="#">Blog</a>
+    
+      <a href="#">Pricing</a>
+    
+      <a href="#">About</a>
+      
+      <a href="#">Faq</a>
+      
+      <a href="#">Contact</a>
+    </p>
+
+    <p class="footer-company-name">Company Name © 2015</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+1.555.555.5555</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:support@company.com">support@company.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>About the company</span>
+      Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+
+    </div>
+
+  </div>
+    <div class="creators">Creators: Arthur Lattin, Brian DeWitt, Caleb Byrne, Collin Blosser, Silvino Santiago. </div>
+</footer>
+      
+ 

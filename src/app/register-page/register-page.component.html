@@ -1,0 +1,42 @@
+<div class="register-page-wrapper">
+    <form class="register-card" [formGroup]="userForm" (ngSubmit)="submitForm()">
+        <div class="register-title">
+            <h2 class="mat-display-2">Register</h2>
+        </div>
+        <div class="name-group">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstName" required matInput type="text" placeholder="First name">
+            </mat-form-field>
+             <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastName" required matInput type="text" placeholder="Last name">
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input required formControlName="email" matInput type="email" placeholder="example@gmail.com">
+            <mat-error *ngIf="userForm.get('email').invalid">{{ getEmailErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input formControlName="zipCode" matInput placeholder="Zip code">
+            <mat-error *ngIf="userForm.get('zipCode').invalid">{{ getZipCodeError() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input formControlName="phoneNumber" matInput type="tel" placeholder="Phone number">
+            <mat-error *ngIf="userForm.get('phoneNumber').invalid">{{ getPhoneNumberError() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" type="password" required matInput placeholder="Password">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input [formControl]="psd_check" type="password" required matInput placeholder="Password">
+            <mat-error *ngIf="psd_check.invalid">{{getPsdCheckErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Create</button>
+    </form>
+</div>
