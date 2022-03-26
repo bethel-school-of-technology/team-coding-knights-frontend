@@ -1,5 +1,5 @@
 {
     "/quotes/user/:id": "/quotes?user_id=:id",
     "/quote/:id": "/quotes?quote_id=:id",
-    "/user/:id": "/user?user_id:id"
+    "/user/:id": "/user?user_id=:id"
 }

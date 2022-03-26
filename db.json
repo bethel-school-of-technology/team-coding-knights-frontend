@@ -1,24 +1,24 @@
 {
-   "user": [
-      {
-         "user_id": 2343243434343434,
-         "user_first_name": "Collin",
-         "user_last_name": "Blosser",
-         "user_zip_code": 134343434,
-         "user_phone_number": 23433434344334,
-         "user_email": "collin_blosser@yahoo.com"
-      }
-   ],
-   "quotes":[
-      {
-         "quote_id": 34481897945866159341140,
-         "user_id": 2343243434343434,
-         "material_name": "",
-         "quote_measurment": 0,
-         "quote_price": 0,
-         "quote_material": "",
-         "user_comments": "THIS IS A COMMENT. There is a lot of notes here but i dont feel like telling you right now, how about you come back around and i'll tell you them. Sound good?"
-      }
-   ],
-   "materials": []
+  "user": [
+    {
+      "user_id": 2343243434343434,
+      "user_first_name": "Collin",
+      "user_last_name": "Blosser",
+      "user_zip_code": 134343434,
+      "user_phone_number": 23433434344334,
+      "user_email": "collin_blosser@yahoo.com"
+    }
+  ],
+  "quotes": [
+    {
+      "quote_id": 344818979458661,
+      "user_id": 2343243434343434,
+      "material_name": "",
+      "quote_measurment": 0,
+      "quote_price": 0,
+      "quote_material": "Concrete,Red Tile",
+      "user_comments": "THIS IS A COMMENT. There is a lot of notes here but i dont feel like telling you right now, how about you come back around and i'll tell you them. Sound good?"
+    }
+  ],
+  "materials": []
 }

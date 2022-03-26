@@ -16,12 +16,11 @@ export class UserControlsComponent implements OnInit {
     first_name: new FormControl(),
     last_name: new FormControl()
   });
-  private user: User;
   constructor(private accountService: UserAccountService) { }
 
   ngOnInit(): void {
     this.accountService.user.subscribe(user=>{
-      if(user) this.userForm.setValue({ 
+      this.userForm.setValue({ 
         email: user.user_email,
         phone: user.user_phone_number,
         zipCode: user.user_zip_code,
@@ -32,8 +31,8 @@ export class UserControlsComponent implements OnInit {
 
   }
 
-  public submit(event: Event) {
-    console.log(event);
+  public submit() {
+    this.accountService.editUser(this.userForm.getRawValue())
   }
 
 }

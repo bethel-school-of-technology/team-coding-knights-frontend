@@ -24,6 +24,10 @@ export class QuoteComponent implements OnInit {
       this.onDelete(this.quote.quote_id);
   }
 
+  public getMaterialList(){
+    return this.quote.quote_material.split(",");
+  }
+
   public viewContent(){
     this.content.nativeElement.classList.toggle("d-none");
     this._open = !this._open;

@@ -59,10 +59,13 @@ import type { RegisterForm } from '../../models/register-form.object';
 
         this.router.navigateByUrl(`/account/${user.id}`);
    }
+   public async editUser(user: any): Promise<void> {}
+
    private setUser(profile: User): void {
        this.user.next(profile);
    }
    private setAuthenicated(value: boolean) {
        this.isAuthenicated.next(value);
    }
+
  }

@@ -7,6 +7,7 @@
     > small {
         > a {
             text-decoration: none;
+            cursor: pointer;
         }
     }
 }
@@ -33,5 +34,17 @@
             height: 2px;
             background-color: var(--bs-gray-500);
         }
+    }
+}
+
+.list-angular-dark {
+    background-color: #424242;
+    color: white;
+}
+
+.materials {
+    margin-bottom: 0.5rem;
+    > h5 {
+        margin-bottom: 0.2rem;
     }
 }
