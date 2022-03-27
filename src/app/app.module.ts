@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,7 @@ import { AppMaterialModule } from './modules/app-material/app-material.module';
 import { RegisterPageComponent } from './register-page/register-page.component';
 
 import { UserAccountService } from './services/UserAccount/user-account.service';
+import { ContractorsListComponent } from './contractors-list/contractors-list.component';
 
 
 @NgModule({
@@ -26,7 +29,8 @@ import { UserAccountService } from './services/UserAccount/user-account.service'
     AppComponent,
     MainPageComponent,
     LoginComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ContractorsListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { UserAccountService } from './services/UserAccount/user-account.service'
     HttpClientModule,
     NgbModule,
     AppMaterialModule,
-    NavbarModule
+    NavbarModule,
+    
+    
   ],
   providers: [
     UserAccountService
