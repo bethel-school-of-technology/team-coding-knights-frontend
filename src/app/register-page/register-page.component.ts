@@ -58,8 +58,8 @@ export class RegisterPageComponent implements OnInit {
       email,
       first_name: firstName,
       last_name: lastName,
-      zip_code: zipCode,
-      phone_number: phoneNumber
+      zip_code: Number(zipCode),
+      phone_number: Number(phoneNumber)
     });
   }
 }

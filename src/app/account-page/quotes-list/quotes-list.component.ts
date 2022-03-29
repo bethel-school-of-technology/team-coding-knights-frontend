@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/Quotes/quotes.service';
 import { UserAccountService } from 'src/app/services/UserAccount/user-account.service';
-import { MaterialsService, type IMaterial } from 'src/app/services/Materials/materials.service';
+import { MaterialsService, type Material } from 'src/app/services/Materials/materials.service';
 
 import type { IQuote } from 'src/app/models/quote.object';
 
@@ -12,7 +12,7 @@ import type { IQuote } from 'src/app/models/quote.object';
 })
 export class QuotesListComponent implements OnInit {
   public quotesList: IQuote[] = [];
-  public materials: IMaterial[] = [];
+  public materials: Material[] = [];
   constructor(private quotes: QuotesService, private accountService: UserAccountService, private materialsService: MaterialsService) { }
 
   ngOnInit(): void {

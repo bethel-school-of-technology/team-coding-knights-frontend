@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-export interface IMaterial {
+export interface Material {
   material_id: number;
   material_name: string;
   material_price: number;
@@ -16,7 +16,10 @@ export class MaterialsService {
 
   constructor(private http: HttpClient) { }
 
-  public getMaterials(): Promise<IMaterial[]> {
-    return this.http.get<IMaterial[]>(`${environment.db_root}/materials`).toPromise()
+  /**
+   * fetch all materials in the backend
+   */
+  public getMaterials(): Promise<Material[]> {
+    return this.http.get<Material[]>(`${environment.db_root}/materials`).toPromise()
   }
 }

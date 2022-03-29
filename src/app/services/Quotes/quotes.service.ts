@@ -12,7 +12,7 @@ export class QuotesService {
 
   constructor(private accountService: UserAccountService, private http: HttpClient) { }
 
-  public async deleteQuoteById(quote_id: number) {
+  public async deleteQuoteById(quote_id: number): Promise<boolean> {
     try {
       const token = await this.accountService.getAccessTokenSilently();
 
@@ -20,8 +20,10 @@ export class QuotesService {
         headers: {
         "Authorization": `Bearer ${token}`
       } }).toPromise();
+      return true;
     } catch (error) {
       console.error(error);
+      return false;
     }
   }
   /**

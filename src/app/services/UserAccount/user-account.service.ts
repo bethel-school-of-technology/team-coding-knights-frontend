@@ -48,8 +48,21 @@ interface AuthenicatedUser {
         this.setUser(data.profile);
         this.setAuthenicated(true);
 
-        this.router.navigateByUrl("");
+        const sub = this.router.routerState.root.queryParams.subscribe(value=>{
+          switch (value?.state) {
+            case "account":
+              this.router.navigateByUrl(`/account/${data.profile.user_id}`);
+              break;
+            case "quote":
+              this.router.navigateByUrl("/quote");
+              break;
+            default:
+              this.router.navigateByUrl("");
+              break;
+          }
+        });
 
+        sub.unsubscribe();
       } catch (error) {
           console.error(error);
       }
@@ -85,24 +98,33 @@ interface AuthenicatedUser {
           }).toPromise();
 
           this.setUser(request);
+
           return true;
       } catch (error) {
         console.error(error);
         return false;
       }
    }
-
+   /**
+    * handles the setting and removable of the JWT from localStorage
+    */
    private setToken(token: string | null): void {
      if(!token) {
         localStorage.removeItem("auth.token");
-      return;
+        return;
      }
 
      localStorage.setItem("auth.token",token);
    }
+   /**
+    * updates the user prop to the give value
+    */
    private setUser(profile: User | undefined): void {
        this.user.next(profile);
    }
+   /**
+    * updates the isAuthenicated props to a new value
+    */
    private setAuthenicated(value: boolean) {
        this.isAuthenicated.next(value);
    }

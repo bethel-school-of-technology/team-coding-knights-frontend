@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { UserAccountService } from '../services/UserAccount/user-account.service';
-import { type ActivatedRouteSnapshot, type CanActivate, Router, type RouterStateSnapshot, type UrlTree } from '@angular/router';
+import { Router,  type ActivatedRouteSnapshot, type CanActivate, type RouterStateSnapshot, type UrlTree } from '@angular/router';
 import type { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,7 +15,9 @@ export class AccountGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.accountService.isAuthenicated.pipe(map(loggedIn => loggedIn ? loggedIn : this.router.createUrlTree(["login"])));
+    return this.accountService.isAuthenicated.pipe(map(loggedIn => loggedIn ? loggedIn : this.router.createUrlTree(["login"], { 
+      queryParams: { state: route.root.children[0]?.url[0] ?? "" }
+     })));
   }
   
 }

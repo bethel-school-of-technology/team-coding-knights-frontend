@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import type { IQuote } from 'src/app/models/quote.object';
-import type { IMaterial } from '../../services/Materials/materials.service';
+import type { Material } from '../../services/Materials/materials.service';
 
 @Component({
   selector: 'app-quote',
@@ -15,7 +15,7 @@ export class QuoteComponent implements OnInit {
   public quote: IQuote;
 
   @Input()
-  public materials: IMaterial[] = [];
+  public materials: Material[] = [];
   public name: string = "Quote";
   public contractor: string = "Contractor Name";
   public formatter = Intl.NumberFormat("en-US",{ currency: "USD", style: "currency" });
@@ -34,9 +34,7 @@ export class QuoteComponent implements OnInit {
 
   public getMaterialList(){
     let items = this.quote.quote_material.split(";");
-
-    console.log(items);
-
+                  // remove empty items
     return items.filter(value=>value.length !== 0).map(value=> { 
       const [id,amount] = value.split(":");
 
