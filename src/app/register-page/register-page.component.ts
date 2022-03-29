@@ -49,10 +49,17 @@ export class RegisterPageComponent implements OnInit {
     if(this.psd_check.hasError("required")) {
       return 'You must enter a value';
     }
-
     return this.psd_check.hasError("matching") ? "Passwords do not match" : "";
   }
   public submitForm() {
-    this.accountService.register(this.userForm.getRawValue());
+    const {email, firstName, lastName, zipCode, phoneNumber, password } = this.userForm.getRawValue();
+    this.accountService.register({
+      password,
+      email,
+      first_name: firstName,
+      last_name: lastName,
+      zip_code: zipCode,
+      phone_number: phoneNumber
+    });
   }
 }

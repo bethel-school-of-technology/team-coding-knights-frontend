@@ -12,7 +12,7 @@ export class UserControlsComponent implements OnInit {
   public userForm: FormGroup = new FormGroup({
     email: new FormControl(undefined,[Validators.required,Validators.email]),
     phone: new FormControl(),
-    zipCode: new FormControl(),
+    zip: new FormControl(0),
     first_name: new FormControl(),
     last_name: new FormControl()
   });
@@ -23,7 +23,7 @@ export class UserControlsComponent implements OnInit {
       this.userForm.setValue({ 
         email: user.user_email,
         phone: user.user_phone_number,
-        zipCode: user.user_zip_code,
+        zip: user.user_zip_code,
         first_name: user.user_first_name,
         last_name: user.user_last_name
       });
@@ -31,8 +31,16 @@ export class UserControlsComponent implements OnInit {
 
   }
 
-  public submit() {
-    this.accountService.editUser(this.userForm.getRawValue())
+  public async submit() {
+    const {email,phone,zip,first_name,last_name} = this.userForm.getRawValue();
+
+    await this.accountService.editUser({
+      email,
+      first_name,
+      last_name,
+      zip: Number(zip),
+      phone: Number(phone)
+    });
   }
 
 }

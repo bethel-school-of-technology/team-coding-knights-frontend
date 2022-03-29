@@ -2,7 +2,8 @@
     <div class="quick-view">
         <div class="contractor">
             <span class="h6">{{ name }}<span class="text-muted">#{{ quote.quote_id }}</span></span>
-            <small class="text-muted text-white-50">Contractor: <a class="link" routerLink="/account/contractor">{{ contractor }}</a></small>
+            <small class="text-muted text-white-50">Price: {{ formatter.format(quote.quote_price) }}</small>
+           <!-- <small class="text-muted text-white-50">Contractor: <a class="link" routerLink="/account/contractor">{{ contractor }}</a></small>-->
         </div>
         <div class="actions">
             <button mat-button color="accent" (click)="viewContent()">View</button>
@@ -13,12 +14,10 @@
      </div>
     <div class="quote-content d-none" #content>
         <hr/>
-        <h5>Cost: ${{ quote.quote_price }}</h5>
-        <h5>Measurement: {{ quote.quote_measurement }}</h5>
         <div class="materials">
             <h5>Materials</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item list-angular-dark" *ngFor="let i of getMaterialList()">{{ i }}</li>
+                <li class="list-group-item list-angular-dark border-white" *ngFor="let i of getMaterialList()">{{ i.id }} {{ i.amount }} </li>
             </ul>
         </div>
         <h5>Comments</h5>

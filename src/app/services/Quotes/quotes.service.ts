@@ -13,11 +13,16 @@ export class QuotesService {
   constructor(private accountService: UserAccountService, private http: HttpClient) { }
 
   public async deleteQuoteById(quote_id: number) {
-    const token = await this.accountService.getAccessTokenSilently();
+    try {
+      const token = await this.accountService.getAccessTokenSilently();
 
-    await this.http.delete(`${environment.db_root}/quote/${quote_id}`,{ headers: {
-      "Authorization": `Bearer ${token}`
-    } }).toPromise();
+      await this.http.delete<void>(`${environment.db_root}/quote/${quote_id}`,{ 
+        headers: {
+        "Authorization": `Bearer ${token}`
+      } }).toPromise();
+    } catch (error) {
+      console.error(error);
+    }
   }
   /**
    * Gets all quotes that are current user. 

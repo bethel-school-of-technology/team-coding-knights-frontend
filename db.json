@@ -1,11 +1,18 @@
 {
+  "roles": [
+    {
+      "user_id": 2343243434343434,
+      "isAdmin": false,
+      "isContractor": false
+    }
+  ],
   "user": [
     {
       "user_id": 2343243434343434,
       "user_first_name": "Collin",
       "user_last_name": "Blosser",
-      "user_zip_code": 134343434,
-      "user_phone_number": 23433434344334,
+      "user_zip_code": 46517,
+      "user_phone_number": 5745753177,
       "user_email": "collin_blosser@yahoo.com"
     }
   ],
@@ -16,9 +23,22 @@
       "material_name": "",
       "quote_measurment": 0,
       "quote_price": 0,
-      "quote_material": "Concrete,Red Tile",
+      "quote_material": "1:100;0:113;",
       "user_comments": "THIS IS A COMMENT. There is a lot of notes here but i dont feel like telling you right now, how about you come back around and i'll tell you them. Sound good?"
     }
   ],
-  "materials": []
+  "materials": [
+    {
+      "material_id": 0,
+      "material_name": "Concrete",
+      "material_price": 100,
+      "material_set_date":"10/10/20"
+    },
+    {
+      "material_id": 1,
+      "material_name": "Paint Red",
+      "material_price": 2,
+      "material_set_date":"10/10/20"
+    }
+  ]
 }
