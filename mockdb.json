@@ -1,0 +1,36 @@
+{
+  "contractors": [
+    {
+      "id": 1,
+      "firstName": "Phill",
+      "lastName": "Scotty",
+      "zipCode": 96003,
+      "phoneNumber": 5305942799,
+      "email": "willsmith@hotmail.com"
+    },
+    {
+      "id": 2,
+      "firstName": "Robert",
+      "lastName": "Jhonson",
+      "zipCode": 96003,
+      "phoneNumber": 5305942799,
+      "email": "robertjhonson@gmail.com"
+    },
+    {
+      "id": 3,
+      "firstName": "Jeramy",
+      "lastName": "Malacot",
+      "zipCode": 96003,
+      "phoneNumber": 5305942799,
+      "email": "jeramymalacot@hotmail.com"
+    },
+    {
+      "id": 4,
+      "firstName": "Paul",
+      "lastName": "Rodriguez",
+      "zipCode": 96003,
+      "phoneNumber": 5305942799,
+      "email": "paulrodriguez@gmail.com"
+    }
+  ]
+}
