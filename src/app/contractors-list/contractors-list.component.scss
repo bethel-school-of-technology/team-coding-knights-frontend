@@ -2,11 +2,10 @@
     box-sizing: border-box;
 }
 
-h1{ font-size: 3.5em;}
-h2{ font-size: 2.7em;}
-h3{ font-size: 2em;}
-p{ font-size: 1.25em;}
-li{ list-style: none;}
+h1{ font-size: 6vh;
+    padding: 50px}
+p{ font-size: 1.50em;}
+
 
 
 
@@ -53,6 +52,7 @@ header .container{
 #contractorslist {
     margin-bottom: 5px;
     background-color: rgba(185, 174, 174, 0.5)
+
 }
 
  button{
@@ -65,32 +65,9 @@ header .container{
     color: rgb(235, 223, 223);
     background-color: rgb(226, 42, 73);
     margin-top: 15px;
-    
-    
+        
 }
 
-#contractorslist button:hover{
-    background-color: rgb(236, 106, 128);
-}
-
-#contractorslist h2{
-    text-align: center;
-    padding: 20px 5px;
-
-}
-
-.container{
-    max-width: 1400px;
-    margin: 0;
-    padding: 12px;
-}
-
-#contractorslist p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    font-size: 1.50em;
-    font-family: 'Roboto', sans-serif;
+button:hover{
+    background-color: rgb(134, 35, 52);
 }
