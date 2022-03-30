@@ -2,7 +2,7 @@
 <mat-form-field appearance="fill">
   <mat-label>Select Material</mat-label>
   <mat-select [formControl]="MaterialGroup" required>
-    <mat-option>--Select item--</mat-option>
+    <mat-option disabled>--Select item--</mat-option>
     <mat-optgroup *ngFor="let group of SelectMaterial" [label]="group.name">
       <mat-option *ngFor="let material of group.materials" [value]="material.value">
         {{ material.viewValue }}
@@ -23,8 +23,8 @@
     <p>{{ formatter.format(price) }}</p>
     <div>
       <h3>Comments to the Contractor:</h3>
-    <textarea rows="5" cols="40" name="comment" placeholder="comment"></textarea>
+    <textarea [formControl]="comment" rows="5" cols="40" name="comment" placeholder="comment"></textarea>
   </div>
 
 
-    <button (click)="save()">save</button>
+    <button (click)="submit()">save</button>

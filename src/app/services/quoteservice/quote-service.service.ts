@@ -18,12 +18,13 @@ export class QuoteService {
 
   constructor(private http: HttpClient, private user: UserAccountService) { }
 
-  public async save(quote:i_quote[]){
+  public async save(quote:i_quote){
     const token = await this.user.getAccessTokenSilently();
 
-    this.http.post(`${environment.db_root}`,quote, { headers: {
+    const request = this.http.post(`${environment.db_root}/quote`,quote, { headers: {
       "Authorization": `Bearer ${token}`
      }
-    })
+    }) 
+    request.subscribe(console.log)
   }
 }

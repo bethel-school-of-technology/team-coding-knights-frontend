@@ -25,8 +25,8 @@ import type { RegisterForm } from '../../models/register-form.object';
     *
     * @memberof UserAccountService
     */
-   public async getAccessTokenSilently(): Promise<void> {
-     throw new Error("Method is not implemented");
+   public async getAccessTokenSilently(): Promise<string> {
+     return ('')
    }
    public async login(request: { email: string, password: string }): Promise<void> {
      throw new Error("Method is not implemeted");

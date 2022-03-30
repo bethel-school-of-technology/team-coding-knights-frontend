@@ -1,10 +1,14 @@
+/**
+ * @author Collin Blosser
+ * @author Arthur Lattin
+ */
 import { Component, OnInit, QueryList, ViewChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
 import { environment } from "../../environments/environment";
 import { ListComponent } from '../list/list.component'
 import { QuoteService } from '../services/quoteservice/quote-service.service'
-import { Observable } from 'rxjs';
+
 
 
 interface SelectMaterial {
@@ -31,9 +35,6 @@ interface Material {
 })
 export class QuoteComponent implements OnInit, AfterViewInit {
   
-  private quotesRoute = 'http://localhost:3000/quotes';
-  
-
   public price: number= 0;
   @ViewChildren("MateiralItem")
   private items!: QueryList<ListComponent>;
@@ -47,12 +48,14 @@ export class QuoteComponent implements OnInit, AfterViewInit {
   materialControl = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
   MaterialGroup = new FormControl('', Validators.required);
+  comment = new FormControl('')
+
   
   SelectMaterial: MaterialGroup[] = []
 
   materials: Material[] = []
 
-  constructor(private http: HttpClient, private up: ChangeDetectorRef) {}
+  constructor(private http: HttpClient, private up: ChangeDetectorRef, private serivce: QuoteService) {}
   
 
   // watching for changes in html after selection
@@ -133,7 +136,16 @@ public reCalc = () => {
   saveList(){
    this.AddedMaterial.push (this.materials.find((material)=>material.material_id === this.MaterialGroup.value))
   }
-  save(){
-    
+  submit(){
+    let material_list = "";
+    this.items.forEach((item)=>{
+    material_list += `${item.itemData.material_id}:${item.formControl.value};`
+    });
+    this.serivce.save({
+  quote_measurement: 0,
+  quote_price: this.price,
+  user_comments: this.comment.value,
+  quote_material: material_list
+})
   }
 }
