@@ -16,12 +16,14 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { LoginComponent } from './login/login.component';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
 
-import { QuotesComponent } from './quotes/quotes.component';
+import { QuoteComponent } from './quotes/quotes.component';
 
 
 import { RegisterPageComponent } from './register-page/register-page.component';
 
 import { UserAccountService } from './services/UserAccount/user-account.service';
+import { ListComponent } from './list/list.component';
+import { QuoteService } from './services/quoteservice/quote-service.service';
 
 
 
@@ -30,8 +32,9 @@ import { UserAccountService } from './services/UserAccount/user-account.service'
     AppComponent,
     MainPageComponent,
     LoginComponent,
-    QuotesComponent,
-    RegisterPageComponent
+    QuoteComponent,
+    RegisterPageComponent,
+    ListComponent
 
   ],
   imports: [
@@ -49,7 +52,8 @@ import { UserAccountService } from './services/UserAccount/user-account.service'
     NavbarModule
   ],
   providers: [
-    UserAccountService
+    UserAccountService,
+    QuoteService
   ],
   bootstrap: [AppComponent],
   schemas: []

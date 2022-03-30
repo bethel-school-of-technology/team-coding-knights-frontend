@@ -1,6 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms'
+import { Component, OnInit, QueryList, ViewChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms'
+import { HttpClient } from '@angular/common/http'
+import { environment } from "../../environments/environment";
+import { ListComponent } from '../list/list.component'
+import { QuoteService } from '../services/quoteservice/quote-service.service'
+import { Observable } from 'rxjs';
 
+
+interface SelectMaterial {
+  value: string;
+  viewValue: String;
+}
+
+interface MaterialGroup {
+  name: string;
+  materials: SelectMaterial[];
+}
+//material model/interface
 interface Material {
   material_id: number;
   material_name: string;
@@ -10,25 +26,114 @@ interface Material {
 
 @Component({
   selector: 'app-quote',
-  templateUrl: './quote.component.html',
-  styleUrls: ['./quote.component.scss']
+  templateUrl: './quotes.component.html',
+  styleUrls: ['./quotes.component.scss']
 })
-export class QuoteComponent implements OnInit {
+export class QuoteComponent implements OnInit, AfterViewInit {
+  
+  private quotesRoute = 'http://localhost:3000/quotes';
+  
 
+  public price: number= 0;
+  @ViewChildren("MateiralItem")
+  private items!: QueryList<ListComponent>;
+
+  //showing the currency on html
+  public formatter = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+
+  //declared variables/arrays
+   AddedMaterial = [];
+  viewable_material: Material | undefined;
   materialControl = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
-  materials: Material[] = [
-    {material_id: 0, material_name: 'Hardwood', material_price: 1.00, material_set_date: new Date() },
-    {material_id: 0, material_name: 'Carpet', material_price: 4.00, material_set_date:  new Date()  },
-    {material_id: 0, material_name: 'Hardwood', material_price: 1.00, material_set_date: new Date() },
-    {material_id: 0, material_name: 'Hardwood', material_price: 1.00, material_set_date: new Date() },
-  ]
+  MaterialGroup = new FormControl('', Validators.required);
+  
+  SelectMaterial: MaterialGroup[] = []
 
+  materials: Material[] = []
 
-  constructor() { }
+  constructor(private http: HttpClient, private up: ChangeDetectorRef) {}
+  
+
+  // watching for changes in html after selection
+  ngAfterViewInit(): void {
+    this.items.changes.subscribe(value=> {
+      this.calc(value);
+      this.up.detectChanges();
+    });
+  }
+  // set default value 
+private calc(list: QueryList<ListComponent>){
+  this.price = 0;
+  for(const a of list){
+    this.price += a.calc();
+  }
+}
+// recalculate after item is removed
+public removeItem = (index: number) => {
+  this.AddedMaterial = this.AddedMaterial.filter((_,i)=>i!==index);
+  this.reCalc();
+}
+
+// calculations on items selected
+public reCalc = () => {
+  this.calc(this.items);
+}
 
   ngOnInit(): void {
-   // http request 
-  }
+   this.MaterialGroup.valueChanges.subscribe((value)=>{
+     console.log(value);
+     this.viewable_material = this.materials.find((item)=>item.material_id==value);
+   });
+   
+    // http request 
+   const request = this.http.get<Material[]>(`${environment.db_root}/materials`).toPromise();
+   request.then((value)=>{this.materials = value
+    let select_materials: Map<string,any[]> = new Map();
+    
+    
+    // list materials to dropdown
+    const addToGroup = (material: Material, name: string, groupName: string) => {
+          
+       //converting to lowercase    
+      if(!material.material_name.toLocaleLowerCase().includes(name)) return;
 
+      //assigning group names in dropdown menu
+      if(!select_materials.has(groupName)){
+        select_materials.set(groupName, []);
+      }
+      let data = select_materials.get(groupName);
+      data.push({ value: material.material_id, viewValue: material.material_name });
+      
+    }
+    //all items assigned to groups 
+    for(const material of value){
+     addToGroup(material, "hardwood", "flooring");
+     addToGroup(material, "tile", "flooring" );
+     addToGroup(material, "carpet", "flooring");
+     addToGroup(material, "linoleum", "flooring");
+     addToGroup(material, "red", "paint");
+     addToGroup(material, "white", "paint");
+     addToGroup(material, "grey", "paint");
+     addToGroup(material, "purple", "paint");
+     addToGroup(material, "soundproof drywall", "drywall");
+     addToGroup(material, "voc-absorbing drywall","drywall");
+     addToGroup(material, "mold-resistant drywall", "drywall");
+
+    }
+
+        for(const [name,data] of select_materials.entries()){
+          this.SelectMaterial.push({
+            name: name,
+            materials: data
+          })
+        }
+   });
+  }
+  saveList(){
+   this.AddedMaterial.push (this.materials.find((material)=>material.material_id === this.MaterialGroup.value))
+  }
+  save(){
+    
+  }
 }

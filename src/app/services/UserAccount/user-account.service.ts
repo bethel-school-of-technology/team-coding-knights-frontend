@@ -51,4 +51,7 @@ import type { RegisterForm } from '../../models/register-form.object';
    private setAuthenicated(value: boolean) {
        this.isAuthenicated.next(value);
    }
+   public getIsAuthenticated(): boolean {
+     return this.isAuthenicated.getValue();
+   }
  }

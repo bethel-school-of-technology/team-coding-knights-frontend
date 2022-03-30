@@ -1,4 +1,19 @@
 {
+   "materials": [
+      {"material_id": 0, "material_name": "Hardwood", "material_price": 5.00, "material_set_date": "" },
+      {"material_id": 1, "material_name": "Tile", "material_price": 9.00, "material_set_date": "" },
+      {"material_id": 2, "material_name": "Carpet", "material_price": 7.00, "material_set_date": "" },
+      {"material_id": 3, "material_name": "Linoleum", "material_price": 6.00, "material_set_date": "" },
+      {"material_id": 4, "material_name": "Red", "material_price": 3.00, "material_set_date": "" },
+      {"material_id": 5, "material_name": "White", "material_price": 3.00, "material_set_date": "" },
+      {"material_id": 6, "material_name": "Grey", "material_price": 3.00, "material_set_date": "" },
+      {"material_id": 7, "material_name": "Purple", "material_price": 3.00, "material_set_date": "" },
+      {"material_id": 8, "material_name": "SoundProof Drywall", "material_price": 18.00, "material_set_date": "" },
+      {"material_id": 9, "material_name": "Fire-resistant Drywall", "material_price": 18.00, "material_set_date": "" },
+      {"material_id": 10, "material_name": "VOC-absorbing drywall", "material_price": 18.00, "material_set_date": "" },
+      {"material_id": 11, "material_name": "Mold-resistant Drywall", "material_price": 18.00, "material_set_date": "" }
+
+    ],
   "api": {
       "users": {
          "76e87160-724b-442c-a6b5-9e77104a8f04": {
