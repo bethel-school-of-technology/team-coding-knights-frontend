@@ -8,13 +8,13 @@ import type { IQuote } from 'src/app/models/quote.object';
 @Injectable({
   providedIn: 'root'
 })
-export class QuotesService {
+export class QuoteService {
 
-  constructor(private accountService: UserAccountService, private http: HttpClient) { }
+  constructor(private http: HttpClient, private user: UserAccountService) { }
 
   public async deleteQuoteById(quote_id: number): Promise<boolean> {
     try {
-      const token = await this.accountService.getAccessTokenSilently();
+      const token = await this.user.getAccessTokenSilently();
 
       await this.http.delete<void>(`${environment.db_root}/quote/${quote_id}`,{ 
         headers: {
@@ -31,8 +31,8 @@ export class QuotesService {
    * Uses the accessToken token of the active user 
    */
   public async getQuotesOfUser(): Promise<IQuote[]> {
-    const token = await this.accountService.getAccessTokenSilently();
-    const user = this.accountService.getUser();
+    const token = await this.user.getAccessTokenSilently();
+    const user = this.user.getUser();
 
     return this.http.get<IQuote[]>(`${environment.db_root}/quotes/user/${user.user_id}`, { 
       headers: {

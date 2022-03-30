@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuotesService } from 'src/app/services/Quotes/quotes.service';
+import { QuoteService } from 'src/app/services/quoteservice/quote-service.service';
 import { UserAccountService } from 'src/app/services/UserAccount/user-account.service';
 import { MaterialsService, type Material } from 'src/app/services/Materials/materials.service';
 
@@ -13,7 +13,7 @@ import type { IQuote } from 'src/app/models/quote.object';
 export class QuotesListComponent implements OnInit {
   public quotesList: IQuote[] = [];
   public materials: Material[] = [];
-  constructor(private quotes: QuotesService, private accountService: UserAccountService, private materialsService: MaterialsService) { }
+  constructor(private quotes: QuoteService, private accountService: UserAccountService, private materialsService: MaterialsService) { }
 
   ngOnInit(): void {
     this.accountService.isAuthenicated.subscribe(this.fetchQuotes.bind(this));

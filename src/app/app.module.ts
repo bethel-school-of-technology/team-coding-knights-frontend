@@ -17,7 +17,7 @@ import { AccountPageModule } from './account-page/account-page.module';
 import { NavbarModule } from './navbar/navbar.module';
 
 import { UserAccountService } from './services/UserAccount/user-account.service';
-import { QuotesService } from './services/Quotes/quotes.service';
+import { QuoteService } from './services/quoteservice/quote-service.service';
 import { ContractorsService } from './services/contractors.service';
 
 
@@ -44,7 +44,7 @@ import { ContractorsService } from './services/contractors.service';
   ],
   providers: [
     UserAccountService,
-    QuotesService,
+    QuoteService,
     ContractorsService
   ],
   bootstrap: [AppComponent],
