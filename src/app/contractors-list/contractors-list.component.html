@@ -1,0 +1,32 @@
+<div class="body">
+  <!--this is the header with the logo under the navbar-->
+  <header>
+    <div class="container">
+      <p class="logo">ProEstimates</p>
+    </div>
+  </header>
+
+  <section id="hero">
+    <h1>This are the best contractors in the world!</h1>
+  </section>
+
+  <section id="contractorslist"> 
+  <h2>Our best Contractors</h2>
+  
+  <div class="container" *ngFor="let contractors of listOfContractors">
+    <p>{{contractors.id}}.  {{contractors.firstName}} {{contractors.lastName}} <br>
+      Phone Number :  {{contractors.phoneNumber}} | 
+      Email :  {{contractors.email}} |
+      Zip code :  {{contractors.zipCode}} |
+      <button >Get Quote</button>
+    </p>
+    
+  </div>
+  
+</section>
+ 
+
+  
+  
+    
+  

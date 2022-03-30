@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginComponent } from './login/login.component';
+import { ContractorsListComponent } from './contractors-list/contractors-list.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
@@ -17,6 +18,8 @@ import { NavbarModule } from './navbar/navbar.module';
 
 import { UserAccountService } from './services/UserAccount/user-account.service';
 import { QuotesService } from './services/Quotes/quotes.service';
+import { ContractorsService } from './services/contractors.service';
+
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { QuotesService } from './services/Quotes/quotes.service';
     AppComponent,
     MainPageComponent,
     LoginComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ContractorsListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { QuotesService } from './services/Quotes/quotes.service';
   ],
   providers: [
     UserAccountService,
-    QuotesService
+    QuotesService,
+    ContractorsService
   ],
   bootstrap: [AppComponent],
   schemas: []
