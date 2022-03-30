@@ -11,7 +11,7 @@
       "user_id": 2343243434343434,
       "user_first_name": "Collin",
       "user_last_name": "Blosser",
-      "user_zip_code": 46517,
+      "user_zip_code": 555555,
       "user_phone_number": 5745753177,
       "user_email": "collin_blosser@yahoo.com"
     },
@@ -20,7 +20,7 @@
       "user_email": "example@email.com",
       "user_first_name": "John",
       "user_last_name": "Doe",
-      "user_zip_code": 46517,
+      "user_zip_code": 9998765,
       "user_phone_number": 5755753177
     }
   ],
