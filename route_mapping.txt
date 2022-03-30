@@ -1,0 +1,54 @@
+POST /register ok => ok { access_token: string, profile: UserProfile }
+    HEADERS {}
+    BODY {
+        password: string;
+        email: string;
+        first_name: string;
+        last_name: string;
+        zip_code: number;
+        phone_number: number;
+    }
+
+POST /login => ok { access_token: string, profile: UserProfile }
+    HEADERS {}
+    BODY { email: string, password: string }
+
+GET /contractor => User[]
+    HEADERS {}
+    BODY {}
+
+GET /materials => Material[]
+    HEADERS {}
+    BODY {}
+
+GET /quotes/users/{user_id} => Quote[]
+    HEADERS: {
+        Authorization
+    }
+    BODY {}
+
+POST /quote => ok {}
+    HEADERS {
+        Authorization
+    }
+    BODY {
+        Quote
+    }
+
+DELETE /quote/{quote_id} => ok {}
+    HEADERS {
+        Authorization
+    }
+    BODY {}
+
+PUT /user/{user_id} => ok {}
+    HEADERS {
+        Authorization
+    }
+    BODY {
+        email?: string;
+        phone?: number;
+        zip?: number;
+        first_name?: string;
+        last_name?: string;
+    }

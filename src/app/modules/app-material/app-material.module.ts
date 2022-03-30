@@ -11,8 +11,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -28,8 +29,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDialogModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatExpansionModule,
     FlexLayoutModule,
-    MatFormFieldModule
+    MatSnackBarModule
   ],
   exports: [
     MatIconModule,
@@ -42,8 +45,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDialogModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatExpansionModule,
     FlexLayoutModule,
-    MatFormFieldModule
+    MatSnackBarModule
   ]
 })
 export class AppMaterialModule { }

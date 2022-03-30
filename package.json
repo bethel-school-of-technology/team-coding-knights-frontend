@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "dev:db": "json-server db.json",
+    "dev:db": "json-server --routes routes.json --watch db.json --middlewares ./route_middleware.js",
     "start": "node ./scripts/run.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

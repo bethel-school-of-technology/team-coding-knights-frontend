@@ -1,0 +1,48 @@
+.divider {
+    margin-top: 0.5rem;
+    display: flex;
+    > span {
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    > hr {
+        width: 100%;
+        height: 3px;
+    }
+}
+.user-form {
+    padding: 5px;
+    display: flex;
+    > div {
+        &:first-child {
+            margin-right: 0.5rem;
+            padding-right: 0.2rem;
+        }
+        > div.avatar {
+            height: 90px;
+            width: 90px;
+            > img {
+                border-radius: 100%;
+                height: inherit;
+                width: inherit;
+            }
+        }
+    }
+    > .user-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        > .name-group {
+            display: flex;
+            > mat-form-field:first-child {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+
+#user-controls {
+    padding: 10px;
+    border-radius: 4px;
+}

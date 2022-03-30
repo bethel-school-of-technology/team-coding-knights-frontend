@@ -1,0 +1,19 @@
+#quotes-list {
+    margin-top: 0.5rem;
+    > div.divider {
+        display: flex;
+        margin-bottom: 1rem;
+        > span {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        > hr {
+            width: 100%;
+            height: 3px;
+        }
+    }
+    > ul {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+}
