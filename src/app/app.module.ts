@@ -22,6 +22,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 
 import { UserAccountService } from './services/UserAccount/user-account.service';
 import { ContractorsListComponent } from './contractors-list/contractors-list.component';
+import { ContractorsService } from './services/contractors.service';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { ContractorsListComponent } from './contractors-list/contractors-list.co
     
   ],
   providers: [
-    UserAccountService
+    UserAccountService, ContractorsService
   ],
   bootstrap: [AppComponent],
   schemas: []

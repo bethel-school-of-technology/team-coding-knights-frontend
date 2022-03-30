@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contractors } from '../models/contractors';
+import { ContractorsService } from '../services/contractors.service';
 
 
 
@@ -11,11 +13,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class ContractorsListComponent implements OnInit {
 
-  constructor() { }
+    listOfContractors: Contractors[] = [];
+
+  constructor(private myContractorsService: ContractorsService) { }
 
   ngOnInit(): void {
+    this.myContractorsService.getAllContractors().subscribe(response => {
+      console.log(response);
+      this.listOfContractors = response;
+  
+    })
   }
-
 }
-
-
