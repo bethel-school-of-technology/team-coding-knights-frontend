@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
    createLoginForm() {
      this.loginForm = this.fb.group({
-       Email: ['', Validators.required],
+       email: ['', Validators.required],
        password: ['', Validators.required]
      });
    }
@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     this.loginError = '';
   }
   submit() {
-    //this.UserAccountService.login();
-    console.log(this.loginForm.getRawValue())
+    this.accountService.login(this.loginForm.getRawValue());
   }
 }

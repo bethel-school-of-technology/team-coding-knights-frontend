@@ -73,6 +73,31 @@
       "material_set_date": ""
     }
   ],
+  "roles": [
+    {
+      "user_id": 2343243434343434,
+      "isAdmin": false,
+      "isContractor": false
+    }
+  ],
+  "user": [
+    {
+      "user_id": 2343243434343434,
+      "user_first_name": "Collin",
+      "user_last_name": "Blosser",
+      "user_zip_code": 555555,
+      "user_phone_number": 5745753177,
+      "user_email": "collin_blosser@yahoo.com"
+    },
+    {
+      "user_id": 86434191640,
+      "user_email": "example@email.com",
+      "user_first_name": "John",
+      "user_last_name": "Doe",
+      "user_zip_code": 9998765,
+      "user_phone_number": 5755753177
+    }
+  ],
   "quotes": [
     {
       "user_comments": "",
@@ -82,33 +107,32 @@
       "user_id": 0,
       "quote_id": 79784823714
     },
-    {
-      "user_comments": "testing",
-      "quote_material": "2: 40: 11: 60: ",
+    }
+      "quote_id": 344818979458661,
+      "user_id": 2343243434343434,
+      "material_name": "",
+      "quote_measurment": 0,
       "quote_price": 0,
-      "quote_measurement": 0,
-      "user_id": 0,
-      "quote_id": 11156540109
+      "quote_material": "1:100;0:113;",
+      "user_comments": "THIS IS A COMMENT. There is a lot of notes here but i dont feel like telling you right now, how about you come back around and i'll tell you them. Sound good?"
     },
     {
-      "user_comments": "test",
-      "quote_material": "3: 8: ",
-      "quote_price": 48,
-      "quote_measurement": 0,
-      "user_id": 0,
-      "quote_id": 61837331159
+      "quote_id": 324545245,
+      "user_id": 86434191640,
+      "material_name": "",
+      "quote_measurment": 0,
+      "quote_price": 1333,
+      "quote_material": "1:100;0:113;",
+      "user_comments": "THIS IS A COMMENT. There is a lot of notes here but i dont feel like telling you right now, how about you come back around and i'll tell you them. Sound good?"
+    },
+    {
+      "quote_id": 43542353454,
+      "user_id": 86434191640,
+      "material_name": "",
+      "quote_measurment": 0,
+      "quote_price": 500.32,
+      "quote_material": "1:100;0:113;",
+      "user_comments": "THIS IS A COMMENT. There is a lot of notes here but i dont feel like telling you right now, how about you come back around and i'll tell you them. Sound good?"
     }
-  ],
-  "api": {
-    "users": {
-      "76e87160-724b-442c-a6b5-9e77104a8f04": {
-        "id": 2.3432434343434344e+32,
-        "first_name": "Collin",
-        "last_name": "Blosser",
-        "zip_code": 134343434,
-        "phone_number": 23433434344334,
-        "email": "collin_blosser@yahoo.com"
-      }
-    }
-  }
+  ]
 }

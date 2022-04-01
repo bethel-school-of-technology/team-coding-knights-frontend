@@ -11,8 +11,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -29,9 +31,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     MatSidenavModule,
     MatToolbarModule,
-    FlexLayoutModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatExpansionModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatSnackBarModule
   ],
   exports: [
     MatIconModule,
@@ -44,9 +48,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     MatSidenavModule,
     MatToolbarModule,
-    FlexLayoutModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatExpansionModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatSnackBarModule
   ]
 })
 export class AppMaterialModule { }
