@@ -1,0 +1,49 @@
+<header>
+  <div class="container">
+    <p class="logo">ProEstimate</p>
+  </div>
+</header>
+
+<section id="hero">
+
+<h1>Get Your Quote:</h1>
+
+<section class="materials">
+<mat-form-field appearance="fill">
+  <mat-label>Select Material</mat-label>
+  <mat-select [formControl]="MaterialGroup" required>
+    <mat-option disabled>--Select item--</mat-option>
+    <mat-optgroup *ngFor="let group of SelectMaterial" [label]="group.name">
+      <mat-option *ngFor="let material of group.materials" [value]="material.value">
+        {{ material.viewValue }}
+      </mat-option>
+    </mat-optgroup>
+    </mat-select>
+    </mat-form-field>
+  </section>
+
+
+  <section class="text">
+    <div>
+        {{ viewable_material?.material_id }}
+    </div>
+
+    <button (click)="saveList()">Add Material</button>
+    <ul>
+      <app-list #MateiralItem *ngFor="let group of AddedMaterial; let i = index" [onDelete]="removeItem" [reCalc]="reCalc" [index]="i" [itemData]="group"></app-list>
+    </ul>
+
+    <p>{{ formatter.format(price) }}</p>
+    <div>
+
+      <h1>Comments to the Contractor:</h1>
+      
+    <textarea [formControl]="comment" rows="5" cols="40" name="comment" placeholder="comment"></textarea>
+  </div>
+
+
+    <button (click)="submit()">save</button>
+
+  </section>
+
+  </section>

@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginComponent } from './login/login.component';
+import { QuoteComponent } from './quotes/quotes.component';
 import { ContractorsListComponent } from './contractors-list/contractors-list.component';
+import { ListComponent } from './list/list.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
@@ -22,11 +24,15 @@ import { ContractorsService } from './services/contractors.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     LoginComponent,
+    QuoteComponent,
+    RegisterPageComponent,
+    ListComponent,
     RegisterPageComponent,
     ContractorsListComponent
   ],

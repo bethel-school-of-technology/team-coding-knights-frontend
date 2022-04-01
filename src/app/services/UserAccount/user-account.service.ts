@@ -53,8 +53,8 @@ interface AuthenicatedUser {
             case "account":
               this.router.navigateByUrl(`/account/${data.profile.user_id}`);
               break;
-            case "quote":
-              this.router.navigateByUrl("/quote");
+            case "quotes":
+              this.router.navigateByUrl("/quotes");
               break;
             default:
               this.router.navigateByUrl("");
@@ -128,5 +128,4 @@ interface AuthenicatedUser {
    private setAuthenicated(value: boolean) {
        this.isAuthenicated.next(value);
    }
-
  }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Contractors } from '../models/contractors';
 import { ContractorsService } from '../services/contractors.service';
 
@@ -15,13 +16,15 @@ export class ContractorsListComponent implements OnInit {
 
     listOfContractors: Contractors[] = [];
 
-  constructor(private myContractorsService: ContractorsService) { }
+  constructor(private myContractorsService: ContractorsService,private router: Router) { }
 
   ngOnInit(): void {
     this.myContractorsService.getAllContractors().subscribe(response => {
       console.log(response);
       this.listOfContractors = response;
-  
-    })
+    });
+  }
+  getQuote(){
+    this.router.navigateByUrl("/quotes");
   }
 }

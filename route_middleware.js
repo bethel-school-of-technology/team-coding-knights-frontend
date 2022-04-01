@@ -1,3 +1,28 @@
+const jwt = require("jsonwebtoken");
+
+const SECRET = "JWT_PSD"
+
+const generate_token = (user) => {
+    const token = jwt.sign({  
+        user_id: user 
+    },
+    SECRET, {
+        expiresIn: "5h"
+    });
+    return token;
+}
+const vaild_token = (token) => {
+    try {
+        const value = token.split("Bearer ");
+
+        const decoded = jwt.verify(value[1],SECRET);
+        return decoded;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
 /**
  * Primary key remapping
  * Using put, delete routes requires objects to have a "id" prop
@@ -9,6 +34,7 @@
  * translating the provide "user_id" or "quote_id" to the given index so the operation can be made 
  * Also routes for /login and /register. 
  * 
+ * @see https://www.npmjs.com/package/jsonwebtoken
  * @see https://www.npmjs.com/package/lodash-id
  * @see https://github.com/typicode/json-server/blob/1759c986b57302be89742375525d238b3af66039/src/server/router/plural.js#L307
  * @see https://expressjs.com/en/guide/using-middleware.html#using-middleware
@@ -31,8 +57,15 @@ module.exports = (req,res,next) => {
               
                 const remove = url.searchParams.get("quote_id");
                 if(!remove || !req.headers?.authorization) return res.sendStatus(400);
+
+                const user = vaild_token(req.headers.authorization);
+                 
+                if(!user) return res.sendStatus(401);
           
                 const data = db.get("quotes").removeById(Number(remove)).value();
+
+                // check that the quote is owned by the user
+                if(data.user_id !== user.user_id) return res.sendStatus(401);
 
                 override_pk();
                 if(!data) return res.sendStatus(404);
@@ -55,6 +88,10 @@ module.exports = (req,res,next) => {
                 const user_id = url.searchParams.get("user_id");
                 // check for authorization header
                 if(!user_id || !req.headers?.authorization) return res.sendStatus(400);
+
+                const user = vaild_token(req.headers.authorization);
+                 
+                if(!user || (user.user_id !== Number(user_id))) return res.sendStatus(401);
 
                 const og = db.get("user").getById(user_id).value();
                 if(!og) {
@@ -93,9 +130,11 @@ module.exports = (req,res,next) => {
                     const user = data.find(user => user.user_email === req.body.email).value();
     
                     if(!user) return res.sendStatus(401);
+
+                    const token = generate_token(user.user_id);
     
                     return res.jsonp({
-                        access_token: `THIS_IS_A_JWT_TOKEN`,
+                        access_token: token,
                         profile: user
                     });
                 }
@@ -126,15 +165,21 @@ module.exports = (req,res,next) => {
 
                     override_pk();
 
+                    const token = generate_token(profile.user_id);
+
                     res.status(201).jsonp({
-                        access_token: `THIS_IS_A_JWT_TOKEN`,
+                        access_token: token,
                         profile
                     });
                 }
                 case "/quote": {
                     const {user_comments,quote_material,quote_price,quote_measurement,material_name} = req.body;
 
-                    if(!("user_comments" in req.body && "quote_material" in req.body  && "quote_price" in req.body  && "quote_measurement" in req.body  && "material_name" in req.body ) || !req.headers?.authorization) return res.sendStatus(400);
+                    if(!("user_comments" in req.body && "quote_material" in req.body  && "quote_price" in req.body  && "quote_measurement" in req.body ) || !req.headers?.authorization) return res.sendStatus(400);
+
+                    const user = vaild_token(req.headers.authorization);
+                 
+                    if(!user) return res.sendStatus(401);
 
                     const quote = {
                         user_comments,
@@ -142,7 +187,7 @@ module.exports = (req,res,next) => {
                         quote_price,
                         quote_measurement,
                         material_name,
-                        user_id: 0, // i guess that this would come from the JWT
+                        user_id: user.user_id, // i guess that this would come from the JWT
                         quote_id: Number((Math.random() * 100000000000).toFixed(0))
                     }
 
