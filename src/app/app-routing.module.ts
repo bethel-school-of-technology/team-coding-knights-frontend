@@ -8,7 +8,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { QuoteComponent } from './quotes/quotes.component';
 import { ContractorsListComponent } from './contractors-list/contractors-list.component';
 import { AccountPageComponent } from './account-page/account-page/account-page.component';
-
+import { QuoteEditComponent } from "./quote-edit/quote-edit.component";
 
 import { AccountGuard } from './guards/account.guard';
 
@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: "quotes", component: QuoteComponent, canActivate: [AccountGuard]},
   { path: "account/:id", component: AccountPageComponent, canActivate: [AccountGuard] },
   { path: "contractors", component: ContractorsPageComponent},
-  { path: "contractorslist", component: ContractorsListComponent}
+  { path: "contractorslist", component: ContractorsListComponent},
+  { path: "quote/edit/:id", component: QuoteEditComponent }
 ];
 
 @NgModule({

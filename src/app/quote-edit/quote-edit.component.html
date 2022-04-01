@@ -1,0 +1,63 @@
+<section id="hero">
+  <!-- Bootstrap container: https://getbootstrap.com/docs/5.0/layout/containers/-->
+  <div class="container">
+
+    <header class="page-header">
+      <!--https://getbootstrap.com/docs/5.0/content/typography/-->
+      <h1 class="display-1">Edit Quote</h1>
+    </header>
+
+    <section class="materials bg-dark">
+    
+      <div class="material-input">
+        <mat-form-field appearance="fill">
+          <mat-label>Select Material</mat-label>
+          <mat-select [formControl]="MaterialGroup" required>
+            <mat-option disabled>--Select item--</mat-option>
+            <mat-optgroup *ngFor="let group of SelectMaterial" [label]="group.name">
+              <mat-option *ngFor="let material of group.materials" [value]="material.value">
+                {{ material.viewValue }}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" (click)="saveList()">Add Material</button>
+      </div>
+  
+      <div class="preview">
+          <mat-card *ngIf="viewable_material">
+            {{ viewable_material?.material_name }}<span class="text-muted">#{{ viewable_material?.material_id }}</span>
+            <div>
+              <span>${{viewable_material.material_price}} pre ft2</span>
+            </div>
+          </mat-card>
+      </div>
+  
+    </section>
+
+
+    <ul class="material-item-list">
+      <app-list #MateiralItem *ngFor="let group of AddedMaterial; let i = index" [onDelete]="removeItem" [reCalc]="reCalc" [index]="i" [itemData]="group"></app-list>
+    </ul>
+
+    <div class="user-notes bg-dark">
+      <mat-form-field appearance="outline">
+        <mat-label>Comments to the Contractor</mat-label>
+        <textarea matInput [formControl]="comment" rows="5" cols="40" name="comment" placeholder="comment"></textarea>
+      </mat-form-field>
+    </div>
+   
+    <section class="controls">
+        <hr class="bg-dark"/>
+        <div>
+          <h3>Price {{ formatter.format(price) }}</h3>
+          <div>
+            <button mat-raised-button color="primary" (click)="submit()">Save</button>
+            <button mat-raised-button color="warn" (click)="deleteQuote()">Delete</button>
+          </div>
+        </div>
+    </section>
+
+  </div>
+</section>

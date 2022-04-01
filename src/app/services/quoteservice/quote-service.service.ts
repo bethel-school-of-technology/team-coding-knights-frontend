@@ -27,7 +27,22 @@ export class QuoteService {
     }) 
     request.subscribe(console.log)
   }
-  
+  public async updateQuoteById(id: number, quote: { quote_price: number, user_comments: string, quote_material: string }): Promise<boolean> {
+    try {
+      const token = await this.user.getAccessTokenSilently();
+
+      await this.http.patch<void>(`${environment.db_root}/quote/${id}`,quote,{ 
+        headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type":"application/json"
+      } }).toPromise();
+      
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
   public async deleteQuoteById(quote_id: number): Promise<boolean> {
     try {
       const token = await this.user.getAccessTokenSilently();
@@ -56,5 +71,14 @@ export class QuoteService {
         "Authorization": `Bearer ${token}`
       } 
     }).toPromise();
+  }
+
+  public async getQuoteById(id: number): Promise<IQuote> {
+    const token = await this.user.getAccessTokenSilently();
+    const request = this.http.get<IQuote>(`${environment.db_root}/quote/${id}`,{ headers: {
+      "Authorization": `Bearer ${token}`
+     }
+    }).toPromise(); 
+    return request;
   }
 }
