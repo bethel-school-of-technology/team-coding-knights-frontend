@@ -6,7 +6,7 @@
     <div class="navbar-main" *ngIf="!onSmallScreen">
         <div class="navbar-links">
             <a routerLink="/contractors" routerLinkActive="active">Contractors</a>
-            <a routerLink="/contact" routerLinkActive="active">Contact</a>
+            <!--<a routerLink="/contact" routerLinkActive="active">Contact</a>-->
         </div>
         <div class="account-ctrl">
           <app-account *ngIf="isAuthenicated; else loginOptions"></app-account>
