@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { QuoteComponent } from './quotes/quotes.component';
 import { ContractorsListComponent } from './contractors-list/contractors-list.component';
 import { ListComponent } from './list/list.component';
+import { QuoteEditComponent } from './quote-edit/quote-edit.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
@@ -34,7 +35,8 @@ import { ContractorsService } from './services/contractors.service';
     RegisterPageComponent,
     ListComponent,
     RegisterPageComponent,
-    ContractorsListComponent
+    ContractorsListComponent,
+    QuoteEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import type { IQuote } from 'src/app/models/quote.object';
 import type { Material } from '../../services/Materials/materials.service';
 
@@ -24,7 +25,7 @@ export class QuoteComponent implements OnInit {
   content: ElementRef;
 
   private _open: boolean = false;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {}
 
@@ -42,7 +43,9 @@ export class QuoteComponent implements OnInit {
 
       return { id: mat.material_name ?? "Unkown Material", amount }
     });
-
+  }
+  public editQuote(){
+    this.router.navigateByUrl(`/quote/edit/${this.quote.quote_id}`);
   }
 
   public viewContent(){

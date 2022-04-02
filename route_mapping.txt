@@ -1,54 +1,95 @@
-POST /register ok => ok { access_token: string, profile: UserProfile }
-    HEADERS {}
-    BODY {
-        password: string;
-        email: string;
-        first_name: string;
-        last_name: string;
-        zip_code: number;
-        phone_number: number;
-    }
+** TYPES DEFINITIONS **
 
-POST /login => ok { access_token: string, profile: UserProfile }
-    HEADERS {}
-    BODY { email: string, password: string }
+    User =>  models/User.java // password excluded
+    Quote => models/Quotes.java
+    Material => models/Materials.java
 
-GET /contractor => User[]
-    HEADERS {}
-    BODY {}
+    ok {} => Does not return content only status
 
-GET /materials => Material[]
-    HEADERS {}
-    BODY {}
+** USER ROUTES START **
 
-GET /quotes/users/{user_id} => Quote[]
-    HEADERS: {
-        Authorization
-    }
-    BODY {}
+    POST /register => ok { string access_token, User profile }
+        HEADERS {}
+        BODY {
+            string password;
+            string email;
+            string first_name;
+            string last_name;
+            int zip_code;
+            int phone_number;
+        }
 
-POST /quote => ok {}
-    HEADERS {
-        Authorization
-    }
-    BODY {
-        Quote
-    }
+    POST /login => ok { string access_token, User profile }
+        HEADERS {}
+        BODY { email: string, password: string }
 
-DELETE /quote/{quote_id} => ok {}
-    HEADERS {
-        Authorization
-    }
-    BODY {}
+    PUT /user/{user_id} => User
+        HEADERS {
+            Authorization
+        }
+        BODY {
+            string email,
+            int phone,
+            int zip,
+            string first_name,
+            string last_name,
+        }
 
-PUT /user/{user_id} => ok {}
-    HEADERS {
-        Authorization
-    }
-    BODY {
-        email?: string;
-        phone?: number;
-        zip?: number;
-        first_name?: string;
-        last_name?: string;
-    }
+    GET /quotes/user/{user_id} => Quote[]
+        HEADERS: {
+            Authorization
+        }
+        BODY {}
+
+** USER ROUTES END **
+
+** QUOTE ROUTES START ** 
+
+    POST /quote => ok {}
+        HEADERS {
+            Authorization
+        }
+        BODY {
+            int quote_measurement
+            int quote_price
+            string user_comments
+            string quote_material
+        }
+
+    DELETE /quote/{quote_id} => ok {}
+        HEADERS {
+            Authorization
+        }
+        BODY {}
+
+    GET /quote/{quote_id} => Quote 
+        HEADERS {
+            Authorization
+        }
+        BODY {}
+
+    PATCH /quote/{quote_id} => ok {} 
+        HEADERS {
+            Authorization
+        }
+        BODY {
+            int quote_price, 
+            string user_comments, 
+            string quote_material
+        }
+
+** QUOTE ROUTES END **
+
+** OTHER ROUTES START **
+
+    GET /contractors => User[]
+        HEADERS {}
+        BODY {}
+
+    GET /materials => Material[]
+        HEADERS {}
+        BODY {}
+
+** OTHER ROUTES END **
+
+

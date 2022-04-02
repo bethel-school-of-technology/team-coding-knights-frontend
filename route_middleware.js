@@ -74,10 +74,10 @@ module.exports = (req,res,next) => {
                 db.write();
 
                 return res.sendStatus(204);
-            } else{
-                // pass
-                next();
-            }
+            } 
+
+            // pass
+            next();
             break;
         }
         case "PUT": {
@@ -210,6 +210,66 @@ module.exports = (req,res,next) => {
                     next();
                     break;
             }
+            break;
+        }
+        case "PATCH": {
+            if(url.pathname === "/quotes") {
+                const quote_id = url.searchParams.get("quote_id");
+                // check for authorization header
+                if(!quote_id || !req.headers?.authorization) return res.sendStatus(400);
+
+                override_pk("quote_id");
+                const og = db.get("quotes").getById(quote_id).value();
+                if(!og) {
+                    override_pk();
+                    return res.sendStatus(404);
+                }
+
+                const { user_comments, quote_price, quote_material } = req.body;
+
+
+                const update = {
+                    user_comments,
+                    quote_material,
+                    quote_price,
+                }
+
+                const data = db.get("quotes").updateById(og.quote_id, update).value();
+                override_pk();
+                if(!data) return res.sendStatus(500);
+
+                db.write();
+                return res.jsonp(data);
+            }
+            // pass
+            next();
+            break;
+        }
+        case "GET" :{
+            if(url.pathname === "/quotes") {
+                const user_id = url.searchParams.get("user_id");
+                if(user_id) return next();
+
+                const quote_id = url.searchParams.get("quote_id");
+
+                // check for authorization header
+                if(!quote_id || !req.headers?.authorization) return res.sendStatus(400);
+
+                // check JWT
+                override_pk("quote_id");
+                const data = db.get("quotes").getById(Number(quote_id)).value();
+
+                if(!data) {
+                    override_pk();
+                    return res.sendStatus(404);
+                }
+                override_pk();
+                return res.jsonp(data);
+    
+
+            } 
+            //pass
+            next();
             break;
         }
         default:
