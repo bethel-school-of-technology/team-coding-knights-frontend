@@ -18,7 +18,8 @@ export class QuoteService {
 
   constructor(private http: HttpClient, private user: UserAccountService) { }
 
-  public async save(quote:i_quote){
+  // create Quote
+  public async save(quote: i_quote){
     const token = await this.user.getAccessTokenSilently();
 
     const request = this.http.post(`${environment.db_root}/quote`,quote, { headers: {
