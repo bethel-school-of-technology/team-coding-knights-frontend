@@ -10,10 +10,10 @@
     <h1>These are the best contractors in the world!</h1>
 
     <div *ngFor="let contractors of listOfContractors">
-      <p>{{contractors.id}}.  {{contractors.firstName}} {{contractors.lastName}} <br>
-        Phone Number :  {{contractors.phoneNumber}} | 
-        Email :  {{contractors.email}} |
-        Zip code :  {{contractors.zipCode}} |
+      <p>{{contractors.user_id}}.  {{contractors.user_first_name}} {{contractors.user_last_name}} <br>
+        Phone Number :  {{contractors.user_phone_number}} | 
+        Email :  {{contractors.user_email}} |
+        Zip code :  {{contractors.user_zip_code}} |
         <button (click)="getQuote()">Get a Quote</button>
       </p>
       

@@ -45,6 +45,7 @@ const vaild_token = (token) => {
 module.exports = (req,res,next) => {
     const url = new URL(req.url,"http://localhost:3000");
     const db = req.app.db;
+    const lodash = db._;
     // override the default primary key with a new primary key
     const override_pk = (pk = "id") => {
         db._.id = pk;
@@ -150,11 +151,19 @@ module.exports = (req,res,next) => {
                         user_zip_code: zip_code,
                         user_phone_number: phone_number
                     }
+
+                    const role = {
+                        user_id: profile.user_id,
+                        isAdmin: false,
+                        isContractor: false
+                    }
                 
                     override_pk("user_id");
                     try {
                         const data = db.get("user").insert(profile).value();
-                        res.locals.data = data;
+                        const roles = db.get("roles").insert(role).value();
+                        
+                        if(!data || !roles) throw new Error(`Missing data`);
                     } catch (error) {
                         console.error(error);
                         override_pk();
@@ -246,6 +255,25 @@ module.exports = (req,res,next) => {
             break;
         }
         case "GET" :{
+            if(url.pathname === "/user") {
+                const query = url.searchParams.get("select");
+                // pass
+                if(!query) return next();
+
+                const users = db.get("user").value();
+                const roles = db.get("roles").value();
+
+              
+                const data = lodash.union(users,roles);
+
+                const final = lodash.groupBy(data,"user_id");
+
+                const contractors = Object.values(final).filter((user)=>user[1].isContractor).map(value=>value[0]);
+
+                return res.jsonp(contractors);
+            }
+
+
             if(url.pathname === "/quotes") {
                 const user_id = url.searchParams.get("user_id");
                 if(user_id) return next();

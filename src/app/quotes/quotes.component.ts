@@ -4,10 +4,9 @@
  */
 import { Component, OnInit, QueryList, ViewChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http'
-import { environment } from "../../environments/environment";
 import { ListComponent } from '../list/list.component'
 import { QuoteService } from '../services/quoteservice/quote-service.service'
+import { MaterialsService } from '../services/Materials/materials.service';
 
 
 
@@ -25,7 +24,7 @@ interface Material {
   material_id: number;
   material_name: string;
   material_price: number;
-  material_set_date: Date;
+  material_set_date: string;
 }
 
 @Component({
@@ -55,7 +54,7 @@ export class QuoteComponent implements OnInit, AfterViewInit {
 
   materials: Material[] = []
 
-  constructor(private http: HttpClient, private up: ChangeDetectorRef, private serivce: QuoteService) {}
+  constructor(private matService: MaterialsService, private up: ChangeDetectorRef, private serivce: QuoteService) {}
   
 
   // watching for changes in html after selection
@@ -90,8 +89,8 @@ public reCalc = () => {
    });
    
     // http request 
-   const request = this.http.get<Material[]>(`${environment.db_root}/materials`).toPromise();
-   request.then((value)=>{this.materials = value
+   const request = this.matService.getMaterials();
+   request.then((value)=>{this.materials = (value as any) // get around Material interface issue
     let select_materials: Map<string,any[]> = new Map();
     
     
