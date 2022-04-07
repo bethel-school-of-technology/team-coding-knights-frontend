@@ -117,7 +117,8 @@
         "lastName": "Scotty",
         "zipCode": 96003,
         "phoneNumber": 5305942799,
-        "email": "willsmith@gmail.com"
+        "email": "philillscotty@gmail.com"
+        
       },
       {
         "id": 2,
@@ -132,7 +133,7 @@
         "firstName": "Jeramy",
         "lastName": "Malacot",
         "zipCode": 96003,
-        "phoneNumber": 5305942799,
+        "phoneNumber": 5305942780,
         "email": "jeramymalacot@gmail.com"
       },
       {
@@ -140,8 +141,24 @@
         "firstName": "Paul",
         "lastName": "Rodriguez",
         "zipCode": 96003,
-        "phoneNumber": 5305942799,
+        "phoneNumber": 5305942750,
         "email": "paulrodriguez@gmail.com"
+      },
+      {
+        "id": 5,
+        "firstName": "Jenifer",
+        "lastName": "afflek",
+        "zipCode": 96003,
+        "phoneNumber": 5305944099,
+        "email": "jeniferafflek@gmail.com"
+      },
+      {
+        "id": 6,
+        "firstName": "Frank",
+        "lastName": "Skate",
+        "zipCode": 96003,
+        "phoneNumber": 5305943099,
+        "email": "frankskate@gmail.com"
       }
     ]
 }

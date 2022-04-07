@@ -5,4 +5,5 @@ export class Contractors {
     zipCode: number;
     phoneNumber: number;
     email: string;
+   
 }
