@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Contractors } from '../models/contractors';
+import { User } from '../models/user.object';
 import { ContractorsService } from '../services/contractors.service';
 
 
@@ -14,7 +14,7 @@ import { ContractorsService } from '../services/contractors.service';
 
 export class ContractorsListComponent implements OnInit {
 
-    listOfContractors: Contractors[] = [];
+    listOfContractors: User[] = [];
 
   constructor(private myContractorsService: ContractorsService,private router: Router) { }
 

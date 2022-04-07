@@ -1,20 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Contractors } from '../models/contractors';
+import { environment } from '../../environments/environment';
+import type { User } from '../models/user.object';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContractorsService {
 
-  myContractorURL: string = "http://localhost:3000/contractors"
+  myContractorURL: string = environment.db_root + "/contractors"
 
   constructor(private http: HttpClient) { }
 
   //list of contractors//
-  getAllContractors(): Observable<Contractors[]>{
-    return this.http.get<Contractors[]>(this.myContractorURL)
+  getAllContractors(): Observable<User[]>{
+    return this.http.get<User[]>(this.myContractorURL)
   }
  
 

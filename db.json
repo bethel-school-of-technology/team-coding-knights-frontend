@@ -75,12 +75,69 @@
   ],
   "roles": [
     {
+      "user_id": 86434191640,
+      "isAdmin": false,
+      "isContractor": false
+    },
+    {
       "user_id": 2343243434343434,
       "isAdmin": false,
       "isContractor": false
+    },
+    {
+      "user_id": 1,
+      "isAdmin": false,
+      "isContractor": true
+    },
+    {
+      "user_id": 2,
+      "isAdmin": false,
+      "isContractor": true
+    },
+    {
+      "user_id": 3,
+      "isAdmin": false,
+      "isContractor": true
+    },
+    {
+      "user_id": 4,
+      "isAdmin": false,
+      "isContractor": true
     }
   ],
   "user": [
+    {
+      "user_id": 1,
+      "user_first_name": "Phill",
+      "user_last_name": "Scotty",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942799,
+      "user_email": "willsmith@gmail.com"
+    },
+    {
+      "user_id": 2,
+      "user_first_name": "Robert",
+      "user_last_name": "Jhonson",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942799,
+      "user_email": "robertjhonson@gmail.com"
+    },
+    {
+      "user_id": 3,
+      "user_first_name": "Jeramy",
+      "user_last_name": "Malacot",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942799,
+      "user_email": "jeramymalacot@gmail.com"
+    },
+    {
+      "user_id": 4,
+      "user_first_name": "Paul",
+      "lastName": "Rodriguez",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942799,
+      "user_email": "paulrodriguez@gmail.com"
+    },
     {
       "user_id": 2343243434343434,
       "user_first_name": "Collin",
@@ -106,7 +163,16 @@
       "quote_measurement": 0,
       "user_id": 2343243434343434,
       "quote_id": 63739906374
+    },
+    {
+      "user_comments": "Comment Here, Aaa",
+      "quote_material": "8:333;10:444;",
+      "quote_price": 13986,
+      "quote_measurement": 0,
+      "user_id": 86434191640,
+      "quote_id": 26156928583
     }
+
   ],
 
   
@@ -161,4 +227,5 @@
         "email": "frankskate@gmail.com"
       }
     ]
+
 }
