@@ -6,17 +6,159 @@
     </div>
   </header>
 
-  <section id="hero">
-    <h1>These are the best contractors in the world!</h1>
 
-    <div *ngFor="let contractors of listOfContractors">
-      <p>{{contractors.user_id}}.  {{contractors.user_first_name}} {{contractors.user_last_name}} <br>
-        Phone Number :  {{contractors.user_phone_number}} | 
-        Email :  {{contractors.user_email}} |
-        Zip code :  {{contractors.user_zip_code}} |
-        <button (click)="getQuote()">Get a Quote</button>
-      </p>
-      
+  <!--This section is for the cards-->
+  <section id="list">
+    <div class="container">
+      <div class="row justify-content-center g-3 ">
+        <div class="col-12 col-md-6 col-lg">
+          <mat-card class="example-card ">
+            <mat-card-header>
+              <mat-card-title>Subcontractor </mat-card-title>
+              <mat-card-subtitle> Residentia <br>l5 Years of Experience</mat-card-subtitle>
+            </mat-card-header> 
+            <img mat-card-image
+              src="https://www.contractortalk.com/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://www.contractortalk.com/attachments/instagram-jpg.505522/">
+            <mat-card-content>
+              <div *ngFor="let contractors of listOfContractors">
+                <div *ngIf="contractors.id === 1">
+                  <h1> {{contractors.firstName}} {{contractors.lastName}} <br>
+                    Phone Number : {{contractors.phoneNumber}} <br>
+                    Email : {{contractors.email}} <br>
+                    Zip code : {{contractors.zipCode}} <br>
+                    <button (click)="getQuote()">Get a Quote</button>
+                  </h1>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>GC/Builder</mat-card-title>
+              <mat-card-subtitle>Residential <br> 20 Years of Experience</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrmMdkI1q5H3rGfxQCQ8o_-fT5rTBXFFc_5g&usqp=CAU">
+            <mat-card-content>
+              <div *ngFor="let contractors of listOfContractors">
+                <div *ngIf="contractors.id === 2">
+                  <h1> {{contractors.firstName}} {{contractors.lastName}} <br>
+                    Phone Number : {{contractors.phoneNumber}} <br>
+                    Email : {{contractors.email}} <br>
+                    Zip code : {{contractors.zipCode}}<br>
+                    <button (click)="getQuote()">Get a Quote</button>
+                  </h1>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Remodelers</mat-card-title>
+              <mat-card-subtitle>Residential <br> 7 Years of Experience</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1gF11SdKyRDrTGRaAfodLVwCQkBz_-ZaiLSgrsGJ2Q1z9oGvivPJQHm8JT40u25c8_UY&usqp=CAU">
+            <mat-card-content>
+              <div *ngFor="let contractors of listOfContractors">
+                <div *ngIf="contractors.id === 3">
+                  <h1> {{contractors.firstName}} {{contractors.lastName}} <br>
+                    Phone Number : {{contractors.phoneNumber}} <br>
+                    Email : {{contractors.email}} <br>
+                    Zip code : {{contractors.zipCode}} <br>
+                    <button (click)="getQuote()">Get a Quote</button>
+                  </h1>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>GC/Builder</mat-card-title>
+              <mat-card-subtitle>Comercial <br> 15 Years of Experience</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVEhgWFhYYFRgSGRgYGBUZGRgYGBIYGBgZGhgYGBgcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDszPy40NTEBDAwMEA8QHhISHjQnJCs0NDQ0NDQ0NDQ0NDE0NDQ0MTQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0MTQ0NDQ0NDQ0NP/AABEIALcBEwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAADAAIEBQYBBwj/xAA8EAACAQIEBAMFBQgCAgMAAAABAgADEQQSITEFBkFRImFxEzKBkaEUUmKxwQcVI0JygtHhkvAzsiSiwv/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EACMRAAICAwEAAQUBAQAAAAAAAAABAhEDITESQQQTIlGRFIH/2gAMAwEAAhEDEQA/APZIDEVso85zGYgIt+vSVVTEXF+pjSE3QzE4q3XWQGBLG/cQpS+plTxnjCUVOuolE7ZOxeMSmpJI0mA4/wAzPUJSmTba8iYvHV8ZUyoDY9B+s1/LHJqpZ3AZvovpBITkZvgHKL1iHq3CnW3Uz0zhfB0pIAqgW8pZUMMqCwhHa0q/0Lz8sHljXecZiY9KXeFjBFCYRaWkLlnbQsKGBdI0CFtOKIJhQK0cyxOQIKtXAGkZIVZHr1wsAtRmMVTDX3jFY9Kxc2HWVHF+LrQ8KAM/3jsvoP1ly49nRZhu2g9Os894o12JYnXYDdvPyE6fpsaySt8Ms0nFa6MxfE3quGdiypq3mPuj12lXi67O7MxuzHNfzvf/AFHO19Nh2H5nuYlWeooRjxHLd9O0sS6sHR2VwNCpIuPPv6GbHlnmkVSKdayudFYaK/l5N+cxVRSozA2sR89f8SItQhr9b3v+syy4YzRUJuPD2pxEglbwDHmthkZtWHhfzI6/EEH4y0pieS04tpnZF2rQyqukZSWGqDSAWoB1iXA+R5EiAeKEqYsdJVVsUxbSXElslcQpsy2HWV2HwAA11lzSuU1kN6ijrMZdNlwYqAbCNqwVXGAbSvxNR30F4ATvbL3ilP8Au54oC2bnEsalz06DsJDVbb9PpJwcKusxfMnMKoCiG7HtM0y2g3MHH1pKVU6zHYHhtbG1Lm4S+rHYency24Dy2+Jf2ta+U6he/wDqelYDhyU1AVQAOglITd8KzgXL6UEACjzPU+svVQARxMba8LsEqOEzhS8IFjoDoCqCOtH2nDARy0Ua7gQBrEjSOgDlxaRnrHpCJTJ3j/ZiHBENFLHWFbDiGRLGEZY7FQClTEZjqmSm72vkVmt3ygm30klRK/jrWovdWYMMhC2BAc5S1yDYAG502Eae9g1oCcT7bC03C5PaLe175bnv1nn3EWzVGPnp6DYSx4NzU1XDZRhnVKf8NGzjPUCAAkDLr73TTftK/FYWofH9mrqD3yfqwP0nV9NnxY21J0Y5cGWaTSbIQSFVJXVcYimzK6+q/wCCY5ccn3mH9rf4noL6jC+SX9MHgyrsX/CZiU/hn1X8mlW4tLFKoYWzkg/hfp/bIGMxVND4zlHS6Pr/APWNZ8XxJf0PtzXYv+Gz5A4igR6buAxZcindtDe3fYTXnFATyzlHGUTi0yuGBfKBqDmZWAGVrHcieqJhh1nm/UKPv0ndm+O6oA2KLXtBJh2Mn06QHSFQTCzTzfSFRwWuusZUw4DbSzCyLXXWCYnEj4piENpR0MM7EkzUNTBWV6qBeQ+mi4REwQG+sJ7IDYQlSqo3Mg1eIjZQSfKIZJtFK37VU7fUTsNCI/NXH8n8NNXbSw6QfLfKZcirXuzHUKdh6yVypy0xb29YXdtQD/L/ALm8SmFElaK6Bw2GVBYCGJnZ0CFjBhY606ROGMDkRjS8GxJgB16oEC9QkaR3se8MKYtAkipTJGsNSp2hQs6BCwoSiNtCCNtAdDbRx2nGjWqACAjqzjiRzitY1nJMYFfi6CJ7oANRlRbADdrtYAeRMj8xYxKFMXBZrXCqLkgeUk4On7Q03Y3almzD7rMt/nZpX8ao+0zhi+UXHgbJrtq3X0nny3uunowTTq+GFbjlCq4VqLoe7JlH1kvE4ShSXO4NiAwsLnXyncDy2XqouZ8lM5ru+ZjqDv8ACXvH+HmrTKKctictjb6x6T0aJutmZwvH8I3hBZSO6HTznONYRXRKgIZCbGw0IYGx187D4ydw/ltlJPtWFyDkKqVHlrvLPivDgtBkUAbG3QeIE2lJpSVGcrcWmQf2d8vULvVKkvScZRpkByizC251O+09GprM7yJRAoPpY5wD52Rf8/WaVBrO2MriedKNSZzLOLvC5Yxd5Vk0OtIuJNjeTLSJjiALmCYmiLWx4UWlHVxTEk3t6Sp49xtEO+Y9hM5iOYqraIlvM6yLvhaVdNTiMRbc/Myubj9Gn7z3PYa/lMvUpV6vvM2vTYQlLgf3o6D0i1fnRb6IxHSdkL9zp2nYeRej3RECiwnbR1pyZmhy0URM4YxDWaCJJhcscFlACVITLO2igA20U6YxnAgA6KBavGByRAVhjUAkWpirGcFIkxww4gJ2BaqzHSIUyd5IRLGEtCwojJQEOU0jwscwhYUVuFplHcC/icMfitiR5WCyu4/j1poTpYaX2F5fYhQELdbbzyznrFB6aJfxK7gjbrqT6X/Ock1UqR3Y5JpyLrl/HhWZ67hQ9ggHuLvcMe+2vrJ1fFITZWsxuALX11OvlMlQ5fZkVKr5N8jqrlHQ20Y3IU76aDQRo5aakM6Vw5tdUQlmYnYarYEab2EKNfT/AEa/hVbOCrgK6aG2zdmHkY3HuToNSwI+hBmV5cxzpia1OrdTTW5uRrcrlsR3vNbwaiMTVLXsiKP7rk/7gotuiZzSVmg4LhwlBbC2e7nzLf6tJSDWGNgLbAaCRHxKqdTOuKpUefKVybZJtBAayHW4qg6yoxfH7HSUkRZpmYCVnFqqlCL7zMYnj7nbSVmIxrvu31jVIGmyxxXL6GmWt0vKujw5FG0vsTxZFoan+WYmvzKLWElA0XxpKJEr4hF6iZjEcYqv7qmVeJbEN5SrF5Nh+80imE9jW84pNleT6nMYTExiAmZocAnbTsRgBwxTjNBtUjEEJjGecVSY8U4wIzuTOezJkr2c6RCxUR0oiEVNIS0QjChirOEQgjDEMHbWEtGtOlhaMBCdMD7YQVfGKouSABHRNkiumZCO4mGxPL6VPtJb3iygW1I9PXQfAy/w3ETWNYrc/Z3QZBuQUJJA6m7H/jC0a6MxZSPEPmVuRp8Zz5dSVnTi3F0YTiWKdKfsrspTQNe17DXUfDWP5exji5qOX8NwCdPUfMfOP52p3qLkQ+JWUkXNugAt/dAcEwTAZ3BUAXCbhm2G25uTf+mJJNGjyNDOJ4AZkr5rGu+RrH3lAzL/AOv1ml4bikw1PKu7WNh0AGg/73lZicJUciqyZUw6gIml2ZrKXYDbQ6D1kZ6VRztvNYxXUc85PjLzEcfJ2lRieJMTfNaR/wB21Du1p0cHv7xJmploiPxIX1a8j1uJX91SZafuxF7RjU6a9oUK2Ub1qrbLaCajVbdiJb1sZTG2vpIrYpj7qMfhHSJsifYXYZWc2khOD0lFyRGO1cmwQiMfgmMqHfKIUFhKlSgnS8gYjiC/ypLzDcqMq+NryTT4Cg6XkNlqNmPNd/uxTbfu1PuiKKx+UerWnDETOSSjhMRncsUAGFIgkfOQAQinbThaACigmrgSLW4iijcRiJ5jSwlHX44ltDf0le/GHb3V+cNAac1wJWY/jlGl77hfLUn5CVaVKhDMT7qlreg0+tpjOJYpXdgTmzG5Prpp8prih62yZM2dTnHDHZyfRT+UgYvnWiqnJndraeEgX8yZ5tiBke3w/wAf984QvdbTrWCJg5y4M4nzDiK1fWs6r1CuyqB/SDaT8HxEfyFiF1Ziblzpa5mcej4nHn+kJSbwiwtp0uL/AClxJfT0LkfjOXGuhOmJQfB0uV+hb5Tb47hYcl08DnUjYOfPsfOeK8KxJStTfbI6n4Xsfpee7YarmQN3F/TvOX6jGns2w5GnozyISfGLOvvK2hHx6+sk0KOY5UAbXxG/hTvc9/Lf03mN5o5warUth8hp0yy5ytzUINiwO4W4IHfftNByRzStcChUVEqAEplGVKoG+VejDcjqLnvbl/zNfk+HS/qb0uk7m2r9mwLuouUekW/EDVQMPiCRKbCcapVQChUki+QkBh5FTLD9pLH93v2L0r+Q9qn62nkNSkCNDOqGJOJyzm1I9XNOs/upb1jG4RXIJLW8gJhuBcx4mkmQVWCp7oNmt5eK+nlNHh/2nkALUw4c9WR8t/7SD+cHhkubEpp9M7xriValUKEG/SUr42s57XM0vGuI0sXVV0BXTVXsCPkbGV9SgB0mUlJPhrFxaN9y1wFDSUsASQDNAnCEHQRvLQvRX0EuMkViUSnfh6BvdkpKCjpD1qesdlhYUVHE1AEpGYTQcUp3EpGpCSykRc3lOSR7MRRDN/lnQJ2MdwIhjpwyNVxir1kGrxEn3QZLkh0WrOBI1TGKu5EpK9Sodzb0kGt+JvmYegovK3GFG2vpK7EcWqN7q28zIyV6YGrCE+2pbQXithojN7Z92PoJ393nr9TJVJ3c6C0OMA53JlAQ0wajciFRUG2srOZsNVp0yyHaO5DRqlPO5uSTGibDcb4iiUyikK7WNrE5R3NhpfznnnFayFyyEAk6ixA39Jr+eaf8U2d1AAFlYqt7a+EaH43nnGKDXvfP/Va5+InbgVIzy8JGMqllv1A+dtRItSraxvGUat7ja26ncSNiXtYf90mzf6MdvpOqL4r/AHgI2glrr2P0OsTe6n9I/IRxfxL+K4+I1H5GUhMeBPUeBVXrYFaZJtUS3tARfILhlP4rgr5jznmWWb/k3HZMBUY6/ZWZrd0ZQ1v+Wb5xZFoI9Mfxrh5pV3RWUAhTe19bdr6dD8ZacocEd/8A5FwXoOAhFwFYAEtbzvb0vKdnZ2Z21ZiSx7k7zafs7xAAdCdCzXB/Eq2/9G+UzyfjoqO9ltz7d+G1GAt/4iR2y1EZvyM8gdPX0ntvMWHz4Oon31YD/ixH5TxjKfPUXhhqgmnZGe4t62+EFUEluhsdOn5QNan5dJqyAmGq2F4sLimLAE6EnTpvp+QkegpsdDpAZ7WABJ06HT4yJO1RUVTs9/5VP8BPQS/tMdyVxMNhkYjLcEWJB90lSfpNC/E0HUTgkqZ0xeiTWE7bSU2K4yo2N4BuMaaXgIsOIbShqsLwzYtn8vWR3p+YkspDM4nJz2Y7idiGbOriG6CRWBO7RmOruF8INztBYbC1WsWNr9Jk3ZfAhRR5yPTxiM5RdxvLhcILayowGAVMU5A3AjoXoVfDu3W0ocbwpzfUzaYjQSod8zGOqEzzHGUaq4hULmxM3GDwSimCdZQ8eoWxCMBpeaXC1waYv2lElpw4r0EulUSh4ewlrTxA2gMruaKV6D/0n8pWfs+X/wCOPUy84umemyD+YEfOV/LeDOGp5Tc2ufM9YxVsxvNVJ/aMaj+IknKgAVR2udT6n5TC1yb7mbbmnFF3YlGQfiIv62F7TDVnFz/kf4noYlUTLMRMSpHiX3l+vkZWVMRmA73t8zLh9RaUtGn/ABcvQNf9YpdREeGhxIsF8rD6Wjai3XzU3HqI9vEnpC06c3Stmbehwa4B7i4lxwjG5cPiUvb2i0wB3s+v0YykpC11+6dPQ6j9flE5tY+Y/wARvgi1wi6HzImqwHA6tOugzI18+a2fwhCqsTdBfxsoBF737TMYEeV9Rp3+M1WNxtdmzU6GZznV2Yo61FLAhGanlUZWTfQ3nHmv0b4+GifhlwAzBTZyVPdcw0sNtNZin4DUGhKDMVVDmPizGnY+7qoFVb+fprs/bvlViigWbQi1w+4y3vbxdJkeM8UcVFVLgUBlGazXPtBVvtoLhBbsszg3w0lRXNw663Do11DCwf3S/sy3u9G6b2F4/wDc75gpZVzZApZXFy5cKCuW6+424EBRxzpYqQMi5RoDoH9pb/lJGE4vlXKyC3gGVAgBRc5yHMDoc7eK9/WW7RCoAvBKmXcC4+69xdC4CjL4zYH3b6iV70lQ2BJI0YkW8QJByg2OXtcA95IxGOJFyiNsCSly9hlXM2+g6ix6m51gKtZnZnY3ZyST5nfSTuwZfcsVQQ6HcHMB1N97D4D5y8NMTKcvVcta1ic6ldBe2xuew0+s05qGZSWzSPBrJrHBYxmMazNEMIIxzBgG8TrExizCcjMkUQHp9RBaJAAI4wVY6SeDWwhcSodyK5YDQjUyXhkvcmGWkIqbHwh4lnbppKwYc5ponXSVLLqY/IFdV4ertcjaHp4NRpJXs44JGSMSiBCqBOBZwiAySloVrWPoZGomPxRGRv6TGlsDyPmoq9RyFza2GlwAN2JJA1N+8zWGwL1aqU1Us1RwAlwucDVgCbAeENrNdzCrZiiWvu7/AHL7AecypU0ai1AxV0YMr/zZh2HXtbreejFXDRzzdTV8PRm5MwT1CwR08JBoh2AUm1nXzFj1sbzz7mrlapg6y1NXpP4Q9tUborjoT0PWeqcvcY9rQR65Sk5v4SwDWvYNY7X7ayzxa0qyFGKOtQZSLgq47G3XznGpTi9nVKMGvxPB8PW1kxakdzlwFsDiFy5jSqXKE7qR7yMepFxY9R8ZCw+JnbCaatHDOLTph2azj8QI+I1H/wCo+obr8j8jA130U9mB+F7H6Ex7HQzSyS4w1fKPqPKWI47VtYNbW+gUa+lrDrt3PeUqNpHhpMoRk7Y1JpUeo8EpPWwtNy48aDN4Re43uR5rMTzWPZYt0OtwjX2vdB0+E2vINXNg1H3HdfS7F/ycTG/tF0xvrTQ+urj9JzwivbRpKT8pmfq44AHTYHrBtjR936yHWNx62HzMY2/WbOETNSZIxPEQABlJzEDf4/pH/vAfdPzlViG8ajtc/kB+ckZdIKEWNyZY4LiqpURmBAVlJ8hfXbynpq4MEAhgQwBBsdQdQZ44VnqPL3EzVwqNfxKMjeqafUWPxmGaCW0aY5N6LQ4H8Q+UY+E/EPlBvimgzWY95zUa2dbDfi+kA9A94TxE9YnpmFBYD2PnFHezMUKCz0UvAYioApkY1ZGxdTwGQWScHigRvJAxA7zF0cWQW16ySmJO+YyvJFmtNUEbysd/EZV4HHEki95L9trFRVkoPHAyOtWPFSFAEZo3WM9pOCoY0gCC8IxJUg9jAioY9ahjCzzzmzF/Z6eZvfqeLLfXxHTTp017TIVKzoBUfRioy9ApY6H4C/ym15u4YHrpm93M1So34KagKo9f1mH41XNStY7IBZeg0vt8TOzFJ0ZZl8sK2KZrXP12vvC06x/SRKawoadKOZk41s65G8S391tVva17GAOEpFrIgHc62/tW9hBZ51a1tt47iLYR+HIPBcsW319wf5jn4Zvlf5j9QZym1uup6zlbFX8KnTqYfjWw2FagF0zj4D/c6lH8f0/3AJ/0xHFa2HTcx6XRbNjydxwYYmiVziq4Ie+UIxUKARY3BIGsn81cs1sVXFVXRPAqZDmOxY3uB+KYLPsRuNflPZ8O+ZA33lU/Nbzi+pbhJSjqzqwJTTUvg85T9ntdveq01F+gZvppDUv2cVM3jxKW6ZaZv9WnoyLvOs40mP35P5NvsxXwYKl+zWjmLPWqsbWGUIoHzBjH/ZytxkxDKOoemGPzDD8p6ApE5lHeT96a+R/Zi+o8z4h+zx1QmnXV2AvkK5M3kGzGx+EbyOz06tXD1FKNYPkYWII8J9bgrr5T0XEMB76HT+YWb423lTjqKsyVhYincBxuoYEEE/d1+Yh99y1IbwJflEZWWMSDrlvOBDMO8RmybA1DAe0bzjWcwEEvFBZjOwA1dzIuMc5DIlDiebYE2tsCbXNht5kCMxWJcqQEfW/8rdNDM6Zo2USKSzesY+cbEyUlN1ucj21J8J0A3+URV7+4+lz7p0C2v8rj5iO5HM3IXBwwY+cvg5J2lNgK9m16y4p4tb9JSs0xytbHNiMu4gzxJYsdUBG0oatZbnSNKypaL48TXykd+NIJnnxOtrQTHyj8sz9M0TcfUQT8yDtKIv5Rqi/SH23+xOTL/HVBiKGdR4irJY972N/kDPLMY38ep18bC/extpPRcBUKqykeFtfQ2t+X5TzvjiezrOCCLkn1m+L8XTLn+UUMzxweVwxIhkxK95t7MPJMJMIukhDFqIhiQfeNh5aylJB5JTOx0Hzj/Cg8R+ci/a+iC34j/iMXJe7NmMfoXkO2IL6DRZKw6WEhnGINukcmP20GsalFbYmnxFgRNtV5qw2GppmrAtkS6Ld2vlGhCjT4zA08YLylbD5nZlPvMSQdQddiJl9RBZEqNcE3jvR69wXnfDYhimfI19A/gJ+Bmpp10axzg2vsdwZ4FTyPoy5XFrj9VMKUA2Zv7SV+ajQzm/y/KZt/o/aPeKmNooMxdV7kkAG584/Orqcrakbj854C1BGHiAbzN7j/AB8pL4FxergavtKZLowyvSZiQVvfwHowkz+nkladlxzxbo9OPNBw9QUMWAjN7ji5SoCbBkb10IIBHnHcSrmhZ1s1GqQHsP8Axs2zafynbyJ7HSHzBhafEMCKlMhjbPTPnbxIfXUEd7Sh5M4y7E4d8zgDMh0OULa4Ynt3mPi16X/UauVOn88Nc9Ev4gdDB+wMk1L95BdmvuJaRzvoX2donEisz9xEM/8A0xiJGWcgcz9vrFCwJFPBFTcEHbQjQ2IPfyEISw18Nwb38d79/e+HpFFENnRUqXJuPELHS/xNzqdBvfbW8bdgSbrdtT4etlF9OvhEUUYhgpDp0nFSxvFFAkLVe4kJ8MDORQRTGfY1nfsoiilkjkwQh0wQiiiAOmF8pU82csLXoBw/s6infLmVl7Ed99Yoo10qPTAVOWGuwSoGKi5DArfvYi8pMXTNM2cfI3iil2xyihlJwwNugufITjYgCcij9OiaRqOGcpvWRXFamA4JHhc7G3UDrK/jHAqtCnnZlZCQLrcG5OmhEUUwWSVo2eONMqjiKeTZs5Iub+EjW+keMTTNMLlYVAT4haxXziimlmQajXXob+onKIIJI9Yop0oxkSKwDC+xGxG4g0xJ2bfv39Yoo30lHag1uCVPlGtVbrY+Y0MUUGNFvytzG2FZlyl6VQ3ZL2KH7y3016iabkwI1SvXClFZiEF7lcxzMNPhFFOaSSbN7bSNYSvcyO6i+5iimQDSl9j9IkpsOoMUUAO+LsIoooAf/9k=">
+            <mat-card-content>
+              <div *ngFor="let contractors of listOfContractors">
+                <div *ngIf="contractors.id === 4">
+                  <h1> {{contractors.firstName}} {{contractors.lastName}} <br>
+                    Phone Number : {{contractors.phoneNumber}} <br>
+                    Email : {{contractors.email}} <br>
+                    Zip code : {{contractors.zipCode}} <br>
+                    <button (click)="getQuote()">Get a Quote</button>
+                  </h1>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Remodelers</mat-card-title>
+              <mat-card-subtitle>Comercial <br> 10 Years of Experience</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBt2i7CyrptOn5lWljWs0tFm_IqeMhmDSXIp9TnmyzVv168bFRHck0g54YIAKL9CXKb54&usqp=CAU">
+            <mat-card-content>
+              <div *ngFor="let contractors of listOfContractors">
+                <div *ngIf="contractors.id === 5">
+                  <h1> {{contractors.firstName}} {{contractors.lastName}} <br>
+                    Phone Number : {{contractors.phoneNumber}} <br>
+                    Email : {{contractors.email}} <br>
+                    Zip code : {{contractors.zipCode}} <br>
+                    <button (click)="getQuote()">Get a Quote</button>
+                  </h1>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>SubContractor</mat-card-title>
+              <mat-card-subtitle>Comercial <br> 18 Years of Experience</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQry13lR-ZiZtdCtE-vttQeF84fqofHf_FW6XYubz1RxD4F4qwLc4VWoONblgBtL0HDLdc&usqp=CAU">
+            <mat-card-content>
+              <div *ngFor="let contractors of listOfContractors">
+                <div *ngIf="contractors.id === 6">
+                  <h1> {{contractors.firstName}} {{contractors.lastName}} <br>
+                    Phone Number : {{contractors.phoneNumber}} <br>
+                    Email : {{contractors.email}} <br>
+                    Zip code : {{contractors.zipCode}} <br>
+                    <button (click)="getQuote()">Get a Quote</button>
+                  </h1>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+      </div>
+
     </div>
+  </section>  
 
-  </section>
+  <!--small footer-->
+  <footer>
+    <div class="container">
+      <p>&copy; ProEstimates 2022</p>
+    </div>
+  </footer>

@@ -1,12 +1,21 @@
 *{
     box-sizing: border-box;
+    
 }
 
-h1{ font-size: 6vh;
-    padding: 50px}
-p{ font-size: 1.50em;}
 
+.body {
+    background-image: linear-gradient(
+        0deg,
+        rgba(240, 240, 245, 0.5),
+        rgba(248, 245, 245, 0.5)
+    )
+    ,url("https://s29938.pcdn.co/wp-content/uploads/2018/10/Wallpaper-Kemra-SoftWhiteBricks-1.jpg.optimal.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 
+}
 
 
 header{
@@ -29,31 +38,6 @@ header .container{
     align-items: center;
 }
 
-#hero{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    height: 90vh;
-    color: white;
-    background-image: linear-gradient(
-        0deg,
-        rgb(0,0,0,0.5),
-        rgb(0,0,0,0.5)
-    )
-    ,url("../../assets/img/Contractor3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-
-}
-
-#contractorslist {
-    margin-bottom: 5px;
-    background-color: rgba(185, 174, 174, 0.5)
-
-}
 
  button{
     font-size: 1.25em;
@@ -65,9 +49,49 @@ header .container{
     color: rgb(235, 223, 223);
     background-color: rgb(226, 42, 73);
     margin-top: 15px;
+    
         
 }
 
 button:hover{
     background-color: rgb(134, 35, 52);
 }
+
+
+.example-card {
+    max-width: 400px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+
+
+  }
+
+  .example-card:hover {
+      transform: scale(1.1);
+      z-index: 2;
+  }
+  
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  footer{
+    background-color: rgb(240, 240, 240);
+}
+
+footer p{
+    margin: 0;
+    padding: 12px;
+    color: rgb(100,100,100);
+}
+
+footer .container{
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+  
