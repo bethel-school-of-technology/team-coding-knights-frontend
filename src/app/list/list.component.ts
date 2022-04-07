@@ -8,7 +8,6 @@ import { FormControl } from '@angular/forms';
 })
 export class ListComponent implements OnInit {
  
- 
   @Input()
   public onDelete: (index: number) => void = ()=>{};
   @Input()
@@ -18,6 +17,7 @@ export class ListComponent implements OnInit {
   @Input()
   public itemData: any = undefined;
   public formControl = new FormControl(0);
+  public formatter = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 
   constructor() { }
 

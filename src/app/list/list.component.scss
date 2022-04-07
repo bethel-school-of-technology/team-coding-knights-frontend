@@ -1,0 +1,43 @@
+li {
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    > p {
+        padding-left: 0.5rem;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    > div {
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100%;
+        > p {
+            margin-right: 0.5rem;
+            margin-bottom: 0;
+        }
+        > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        > button {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+    }
+  
+}
+
+.disable-padding > div {
+    padding-bottom: 0 !important;
+}
