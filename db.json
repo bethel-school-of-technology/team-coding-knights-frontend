@@ -177,53 +177,53 @@
 
   "contractors": [
     {
-      "id": 1,
-      "firstName": "Phill",
-      "lastName": "Scotty",
-      "zipCode": 96003,
-      "phoneNumber": 5305942799,
-      "email": "philillscotty@gmail.com"
+      "user_id": 1,
+      "user_first_name": "Phill",
+      "user_last_name": "Scotty",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942799,
+      "user_email": "philillscotty@gmail.com"
       
     },
     {
-      "id": 2,
-      "firstName": "Robert",
-      "lastName": "Jhonson",
-      "zipCode": 96003,
-      "phoneNumber": 5305942799,
-      "email": "robertjhonson@gmail.com"
+      "user_id": 2,
+      "user_first_name": "Robert",
+      "user_last_name": "Jhonson",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942799,
+      "user_email": "robertjhonson@gmail.com"
     },
     {
-      "id": 3,
-      "firstName": "Jeramy",
-      "lastName": "Malacot",
-      "zipCode": 96003,
-      "phoneNumber": 5305942780,
-      "email": "jeramymalacot@gmail.com"
+      "user_id": 3,
+      "user_first_name": "Jeramy",
+      "user_last_name": "Malacot",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942780,
+      "user_email": "jeramymalacot@gmail.com"
     },
     {
-      "id": 4,
-      "firstName": "Paul",
-      "lastName": "Rodriguez",
-      "zipCode": 96003,
-      "phoneNumber": 5305942750,
-      "email": "paulrodriguez@gmail.com"
+      "user_id": 4,
+      "user_first_name": "Paul",
+      "user_last_name": "Rodriguez",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305942750,
+      "user_email": "paulrodriguez@gmail.com"
     },
     {
-      "id": 5,
-      "firstName": "Jenifer",
-      "lastName": "afflek",
-      "zipCode": 96003,
-      "phoneNumber": 5305944099,
-      "email": "jeniferafflek@gmail.com"
+      "user_id": 5,
+      "user_first_name": "Jennifer",
+      "user_last_name": "afflek",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305944099,
+      "user_email": "jeniferafflek@gmail.com"
     },
     {
-      "id": 6,
-      "firstName": "Frank",
-      "lastName": "Skate",
-      "zipCode": 96003,
-      "phoneNumber": 5305943099,
-      "email": "frankskate@gmail.com"
+      "user_id": 6,
+      "user_first_name": "Frank",
+      "user_last_name": "Skate",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305943099,
+      "user_email": "frankskate@gmail.com"
     }
   ]
 }
