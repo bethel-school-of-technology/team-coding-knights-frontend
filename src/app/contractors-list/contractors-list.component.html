@@ -14,7 +14,7 @@
           <mat-card class="example-card ">
             <mat-card-header>
               <mat-card-title>Subcontractor </mat-card-title>
-              <mat-card-subtitle> Residentia <br>l5 Years of Experience</mat-card-subtitle>
+              <mat-card-subtitle> Residentia <br>5 Years of Experience</mat-card-subtitle>
             </mat-card-header> 
             <img mat-card-image
               src="https://www.contractortalk.com/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://www.contractortalk.com/attachments/instagram-jpg.505522/">
@@ -69,8 +69,8 @@
               <div *ngFor="let contractors of listOfContractors">
                 <div *ngIf="contractors.user_id === 3">
                   <h1> {{contractors.user_first_name}} {{contractors.user_last_name}} <br>
-                    Phone Number : {{contractors.user_phone_number}} <br>
-                    Email : {{contractors.user_email}} <br>
+                    Phone Number : {{contractors.user_phone_number}} 
+                    Email: {{contractors.user_email}} <br>
                     Zip code : {{contractors.user_zip_code}} <br>
                     <button (click)="getQuote()">Get a Quote</button>
                   </h1>
