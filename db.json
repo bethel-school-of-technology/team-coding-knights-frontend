@@ -103,6 +103,16 @@
       "user_id": 4,
       "isAdmin": false,
       "isContractor": true
+    },
+    {
+      "user_id": 5,
+      "isAdmin": false,
+      "isContractor": true
+    },
+    {
+      "user_id": 6,
+      "isAdmin": false,
+      "isContractor": true
     }
   ],
   "user": [
@@ -139,6 +149,22 @@
       "user_email": "paulrodriguez@gmail.com"
     },
     {
+      "user_id": 5,
+      "user_first_name": "Jenifer",
+      "user_last_name": "afflek",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305944099,
+      "user_email": "jeniferafflek@gmail.com"
+    },
+    {
+      "user_id": 6,
+      "user_first_name": "Frank",
+      "user_last_name": "Skate",
+      "user_zip_code": 96003,
+      "user_phone_number": 5305943099,
+      "user_email": "frankskate@gmail.com"
+    },
+    {
       "user_id": 2343243434343434,
       "user_first_name": "Collin",
       "user_last_name": "Blosser",
@@ -171,59 +197,6 @@
       "quote_measurement": 0,
       "user_id": 86434191640,
       "quote_id": 26156928583
-    }
-
-  ],
-
-  "contractors": [
-    {
-      "user_id": 1,
-      "user_first_name": "Phill",
-      "user_last_name": "Scotty",
-      "user_zip_code": 96003,
-      "user_phone_number": 5305942799,
-      "user_email": "philillscotty@gmail.com"
-      
-    },
-    {
-      "user_id": 2,
-      "user_first_name": "Robert",
-      "user_last_name": "Jhonson",
-      "user_zip_code": 96003,
-      "user_phone_number": 5305942799,
-      "user_email": "robertjhonson@gmail.com"
-    },
-    {
-      "user_id": 3,
-      "user_first_name": "Jeramy",
-      "user_last_name": "Malacot",
-      "user_zip_code": 96003,
-      "user_phone_number": 5305942780,
-      "user_email": "jeramymalacot@gmail.com"
-    },
-    {
-      "user_id": 4,
-      "user_first_name": "Paul",
-      "user_last_name": "Rodriguez",
-      "user_zip_code": 96003,
-      "user_phone_number": 5305942750,
-      "user_email": "paulrodriguez@gmail.com"
-    },
-    {
-      "user_id": 5,
-      "user_first_name": "Jennifer",
-      "user_last_name": "afflek",
-      "user_zip_code": 96003,
-      "user_phone_number": 5305944099,
-      "user_email": "jeniferafflek@gmail.com"
-    },
-    {
-      "user_id": 6,
-      "user_first_name": "Frank",
-      "user_last_name": "Skate",
-      "user_zip_code": 96003,
-      "user_phone_number": 5305943099,
-      "user_email": "frankskate@gmail.com"
     }
   ]
 }

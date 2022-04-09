@@ -1,5 +1,15 @@
-<li>
-    <p>Index: {{ index }}</p>
-    <button (click)="removeSelf()">Delete</button>
-    <input [formControl]="formControl" type="number"/>
+<li class="bg-dark">
+    <p>{{itemData?.material_name }}<span class="text-muted">#{{ itemData?.material_id }}</span> </p>
+  
+    <div>
+        <p> {{ formatter.format(itemData?.material_price) }} </p>
+       
+        <div>
+            <mat-form-field appearance="outline" class="disable-padding">
+                <input matInput [formControl]="formControl" type="number"/>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="warn" (click)="removeSelf()">Delete</button>
+    </div>
 </li>
