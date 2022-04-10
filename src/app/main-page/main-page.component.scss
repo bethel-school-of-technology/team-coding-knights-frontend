@@ -11,12 +11,14 @@ NgBootstrap Carosel
 .ngb-carousel {
     max-width: 75vw; 
     margin: 10px auto;
+   
 }  
  
 
 .ngb-carousel img {
     width: 100%;
     outline: none;
+    max-height: 55%;
 }
 
 .carousel-item {

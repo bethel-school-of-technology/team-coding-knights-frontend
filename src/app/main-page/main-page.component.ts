@@ -1,3 +1,7 @@
+/**
+ * @author Arthur Lattin
+ */
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 @Component({
@@ -12,7 +16,7 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 export class MainPageComponent implements OnInit {
   constructor() { }
 
-  images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  images = ['/assets/img/img1.jpg', '/assets/img/img2.jpg', '/assets/img/img3.jpg', '/assets/img/img4.jpg'];
 
   paused = false;
   unpauseOnArrow = false;
