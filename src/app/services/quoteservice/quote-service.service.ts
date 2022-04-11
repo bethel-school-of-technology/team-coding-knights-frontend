@@ -9,6 +9,7 @@ interface i_quote {
   quote_price: number
   user_comments: string
   quote_material: string
+  user_id?: number;
 }
 
 @Injectable({
@@ -21,7 +22,7 @@ export class QuoteService {
   // create Quote
   public async save(quote: i_quote){
     const token = await this.user.getAccessTokenSilently();
-
+    quote.user_id = this.user.getUser().user_id;
     const request = this.http.post(`${environment.db_root}/quote`,quote, { headers: {
       "Authorization": `Bearer ${token}`
      }
