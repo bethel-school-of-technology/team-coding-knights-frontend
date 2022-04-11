@@ -9,7 +9,7 @@ import type { User } from '../models/user.object';
 })
 export class ContractorsService {
 
-  myContractorURL: string = environment.db_root + "/contractors"
+  myContractorURL: string = environment.fake_db + "/contractors"
 
   constructor(private http: HttpClient) { }
 

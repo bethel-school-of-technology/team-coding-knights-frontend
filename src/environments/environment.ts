@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  db_root: "http://localhost:8080"
+  db_root: "http://localhost:8080",
+  fake_db: "http://localhost:3000"
 };
 
 /*
